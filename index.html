@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mis 15 Años</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --rosa:#f7d6e0;
+    --dorado:#d4af37;
+    --negro:#0f0f0f;
+    --blanco:#ffffff;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+html{scroll-behavior:smooth;}
+
+body{
+    font-family:'Montserrat',sans-serif;
+    color:var(--negro);
+    background:#fff;
+}
+
+/* GENERALES */
+section{
+    min-height:100vh;
+    padding:60px 20px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+/* HERO */
+.hero{
+    position:relative;
+    background:url('/images/portada.jpg') center/cover no-repeat;
+    color:white;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.55);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+
+.hero h1{
+    font-family:'Playfair Display';
+    font-size:3.5rem;
+    letter-spacing:2px;
+}
+
+.hero h2{
+    font-size:1.3rem;
+    margin-top:10px;
+    font-weight:300;
+}
+
+.hero p{
+    margin-top:15px;
+    font-size:1rem;
+}
+
+.scroll-btn{
+    margin-top:30px;
+    border:1px solid var(--dorado);
+    padding:12px 28px;
+    color:white;
+    background:transparent;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.scroll-btn:hover{
+    background:var(--dorado);
+}
+
+/* TITULOS */
+.title{
+    font-family:'Playfair Display';
+    font-size:2.2rem;
+    margin-bottom:15px;
+}
+
+.subtitle{
+    color:#555;
+    max-width:500px;
+}
+
+/* FECHA */
+.fecha-box{
+    border:1px solid var(--dorado);
+    padding:25px 40px;
+    border-radius:12px;
+}
+
+/* COUNTDOWN */
+.countdown{
+    display:flex;
+    gap:20px;
+    margin-top:20px;
+}
+
+.countdown div{
+    border:1px solid var(--dorado);
+    padding:15px;
+    min-width:80px;
+}
+
+.countdown span{
+    font-size:1.8rem;
+    font-weight:500;
+}
+
+/* UBICACION */
+.btn{
+    margin-top:20px;
+    padding:12px 25px;
+    background:var(--dorado);
+    color:white;
+    border:none;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.btn:hover{opacity:0.8;}
+
+/* GALERIA */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:15px;
+    width:100%;
+    max-width:1000px;
+}
+
+.gallery img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+    transition:.4s;
+}
+
+.gallery img:hover{
+    transform:scale(1.05);
+}
+
+/* RSVP */
+.rsvp{
+    background:var(--rosa);
+}
+
+.rsvp .btn{
+    font-size:1.2rem;
+}
+
+/* FOOTER */
+.footer{
+    background:#111;
+    color:white;
+    min-height:40vh;
+}
+
+/* WHATSAPP */
+.whatsapp{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    color:white;
+    width:55px;
+    height:55px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    font-size:22px;
+}
+
+/* ANIMACIONES */
+.hidden{
+    opacity:0;
+    transform:translateY(40px);
+    transition:all .8s ease;
+}
+
+.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    .hero h1{font-size:2.5rem;}
+    .countdown{flex-wrap:wrap;justify-content:center;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <h2>Mis 15 años</h2>
+        <h1 id="nombre">Kamila</h1>
+        <p>Hoy comienza una nueva etapa llena de sueños</p>
+        <button class="scroll-btn" onclick="scrollNext()">Descubrir</button>
+    </div>
+</section>
+
+<!-- FECHA -->
+<section class="hidden">
+    <h2 class="title">Fecha del evento</h2>
+    <div class="fecha-box">
+        <p>20 de Diciembre 2026</p>
+        <p>7:00 PM</p>
+    </div>
+</section>
+
+<!-- COUNTDOWN -->
+<section class="hidden">
+    <h2 class="title">Falta muy poco</h2>
+    <div class="countdown">
+        <div><span id="dias"></span><br>Días</div>
+        <div><span id="horas"></span><br>Horas</div>
+        <div><span id="minutos"></span><br>Min</div>
+    </div>
+</section>
+
+<!-- UBICACION -->
+<section class="hidden">
+    <h2 class="title">Ubicación</h2>
+    <p>Salón Dorado</p>
+    <p>Bogotá, Colombia</p>
+    <a id="mapsBtn" class="btn" target="_blank">Ver en Google Maps</a>
+</section>
+
+<!-- DETALLES -->
+<section class="hidden">
+    <h2 class="title">Detalles</h2>
+    <p>Dress Code: Elegante</p>
+    <p class="subtitle">Tu presencia es el mejor regalo</p>
+</section>
+
+<!-- GALERIA -->
+<section class="hidden">
+    <h2 class="title">Galería</h2>
+    <div class="gallery">
+        <!-- REEMPLAZAR IMÁGENES -->
+        <img src="/images/foto1.jpg" loading="lazy">
+        <img src="/images/foto2.jpg" loading="lazy">
+        <img src="/images/foto3.jpg" loading="lazy">
+        <img src="/images/foto4.jpg" loading="lazy">
+        <img src="/images/foto5.jpg" loading="lazy">
+        <img src="/images/foto6.jpg" loading="lazy">
+    </div>
+</section>
+
+<!-- RSVP -->
+<section class="rsvp hidden">
+    <h2 class="title">Confirmación</h2>
+    <p>Confirmar antes de la fecha límite – Cupos limitados</p>
+    <a id="rsvpBtn" class="btn" target="_blank">Confirmar asistencia</a>
+</section>
+
+<!-- FOOTER -->
+<section class="footer">
+    <p>Te espero para compartir este momento especial ✨</p>
+</section>
+
+<!-- WHATSAPP -->
+<a id="whatsappBtn" class="whatsapp" target="_blank">💬</a>
+
+<script>
+// VARIABLES EDITABLES
+const fechaEvento = new Date("2026-12-20T19:00:00");
+const linkRSVP = "https://forms.gle/TU_LINK";
+const nombreQuinceañera = "Kamila";
+const linkMaps = "https://maps.google.com";
+const telefonoWhatsApp = "573000000000";
+
+// SET DATOS
+document.getElementById("nombre").textContent = nombreQuinceañera;
+document.getElementById("rsvpBtn").href = linkRSVP;
+document.getElementById("mapsBtn").href = linkMaps;
+document.getElementById("whatsappBtn").href = `https://wa.me/${telefonoWhatsApp}`;
+
+// SCROLL
+function scrollNext(){
+    window.scrollBy({top:window.innerHeight,behavior:'smooth'});
+}
+
+// COUNTDOWN
+setInterval(()=>{
+    const ahora=new Date();
+    const diff=fechaEvento-ahora;
+
+    const dias=Math.floor(diff/(1000*60*60*24));
+    const horas=Math.floor((diff/(1000*60*60))%24);
+    const minutos=Math.floor((diff/(1000*60))%60);
+
+    document.getElementById("dias").textContent=dias;
+    document.getElementById("horas").textContent=horas;
+    document.getElementById("minutos").textContent=minutos;
+},1000);
+
+// ANIMACIONES
+const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
+});
+
+document.querySelectorAll(".hidden").forEach(el=>observer.observe(el));
+</script>
+
+</body>
+</html>
