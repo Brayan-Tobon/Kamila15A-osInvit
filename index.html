@@ -6,16 +6,14 @@
 
 <title>Mis 15 - Maria Kamila Tobon</title>
 
-<!-- ================= FONTS ================= -->
+<!-- FUENTES -->
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
-<!-- ================= ESTILOS ================= -->
 <style>
 
 /* ===== VARIABLES ===== */
 :root{
 --gold:#d4af37;
---black:#000;
 --white:#fff;
 }
 
@@ -30,24 +28,24 @@ body{
 font-family:'Montserrat',sans-serif;
 background:#000;
 color:white;
-overflow:hidden; /* bloqueado hasta abrir */
+overflow:hidden;
 }
 
 /* ===================================================== */
-/* ================== INTRO (PORTADA) =================== */
+/* ================== INTRO ============================= */
 /* ===================================================== */
 
 .intro{
 position:fixed;
 inset:0;
-background:url('images/intro-bg.jpg') center/cover no-repeat;
+background:url('images/intro-bg.png') center/cover no-repeat;
 display:flex;
 align-items:center;
 justify-content:center;
 z-index:999;
 }
 
-/* overlay oscuro elegante */
+/* overlay */
 .intro::before{
 content:"";
 position:absolute;
@@ -70,20 +68,25 @@ font-size:3.5rem;
 text-shadow:0 0 25px rgba(212,175,55,0.8);
 }
 
+/* subtitulo */
+.subtitle{
+margin-top:10px;
+opacity:0.8;
+font-size:1rem;
+}
+
 /* botón */
 .intro button{
-margin-top:30px;
+margin-top:25px;
 padding:14px 40px;
 border-radius:50px;
 border:2px solid var(--gold);
 background:rgba(0,0,0,0.4);
 color:white;
-font-size:1rem;
 cursor:pointer;
 transition:all .3s ease;
 }
 
-/* hover */
 .intro button:hover{
 background:var(--gold);
 color:black;
@@ -91,7 +94,7 @@ transform:scale(1.05);
 }
 
 /* ===================================================== */
-/* ================= CONTENIDO GENERAL ================== */
+/* ================= CONTENIDO ========================== */
 /* ===================================================== */
 
 #contenido{
@@ -117,44 +120,34 @@ font-size:2.5rem;
 
 <body>
 
-<!-- ===================================================== -->
-<!-- ================== INTRO ============================= -->
-<!-- ===================================================== -->
-
+<!-- ================= INTRO ================= -->
 <section class="intro" id="intro">
     <div class="intro-content">
         <h1>Maria Kamila Tobon</h1>
+        <p class="subtitle">Una noche mágica está por comenzar ✨</p>
         <button onclick="abrirInvitacion()">Abrir Invitación</button>
     </div>
 </section>
 
-<!-- ===================================================== -->
-<!-- ================== CONTENIDO ========================= -->
-<!-- ===================================================== -->
-
+<!-- ================= CONTENIDO ================= -->
 <section id="contenido">
     <h2 style="font-family:Playfair Display;">
-        Aquí construiremos la invitación 👇
+        Aquí sigue la invitación 👇
     </h2>
 </section>
 
-<!-- ===================================================== -->
-<!-- ================== SCRIPTS =========================== -->
-<!-- ===================================================== -->
-
+<!-- ================= SCRIPT ================= -->
 <script>
 
-/* ===== ABRIR INVITACIÓN ===== */
 function abrirInvitacion(){
 
 const intro = document.getElementById("intro");
 const contenido = document.getElementById("contenido");
 
-/* animación salida */
+/* animación */
 intro.style.opacity = "0";
 intro.style.transition = "0.8s";
 
-/* mostrar contenido */
 setTimeout(()=>{
 intro.style.display = "none";
 contenido.style.display = "flex";
