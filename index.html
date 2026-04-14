@@ -5,17 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mis 15 - Maria Kamila Tobon</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- FUENTES PREMIUM -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 :root{
 --gold:#d4af37;
 --pink:#f3d6df;
 --black:#0f0f0f;
---white:#fff;
+--white:#ffffff;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
+
+html{scroll-behavior:smooth;}
 
 body{
 font-family:'Montserrat',sans-serif;
@@ -28,16 +31,18 @@ overflow-x:hidden;
 .intro{
 position:fixed;
 inset:0;
-background:black;
+background:#000;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
 z-index:999;
+text-align:center;
 }
 
 .intro h1{
-font-family:'Playfair Display';
+font-family:'Great Vibes',cursive;
+font-size:3rem;
 margin-bottom:20px;
 }
 
@@ -47,12 +52,17 @@ border:1px solid var(--gold);
 background:none;
 color:white;
 cursor:pointer;
+transition:.3s;
+}
+
+.intro button:hover{
+background:var(--gold);
 }
 
 /* HERO */
 .hero{
 height:100vh;
-background:url('/images/portada.jpg') center/cover no-repeat;
+background:url('images/portada.jpg') center/cover no-repeat;
 position:relative;
 display:flex;
 align-items:center;
@@ -70,15 +80,18 @@ background:rgba(0,0,0,0.6);
 .hero-content{
 position:relative;
 z-index:2;
+max-width:600px;
 }
 
 .hero h1{
-font-family:'Playfair Display';
-font-size:3.5rem;
+font-family:'Great Vibes',cursive;
+font-size:4rem;
+text-shadow:0 0 20px rgba(212,175,55,0.6);
 }
 
 .hero p{
 margin-top:15px;
+line-height:1.6;
 }
 
 .btn{
@@ -88,6 +101,11 @@ border:1px solid var(--gold);
 color:white;
 background:none;
 cursor:pointer;
+transition:.3s;
+}
+
+.btn:hover{
+background:var(--gold);
 }
 
 /* SECCIONES */
@@ -107,6 +125,7 @@ font-size:2.5rem;
 margin-bottom:15px;
 }
 
+/* BOX */
 .box{
 border:1px solid var(--gold);
 padding:25px 40px;
@@ -123,6 +142,7 @@ margin-top:20px;
 .countdown div{
 border:1px solid var(--gold);
 padding:15px;
+min-width:80px;
 }
 
 /* GALERIA */
@@ -153,7 +173,7 @@ color:black;
 
 /* FOOTER */
 .footer{
-background:black;
+background:#000;
 }
 
 /* WHATSAPP */
@@ -163,20 +183,30 @@ bottom:20px;
 right:20px;
 background:#25D366;
 color:white;
-padding:15px;
+width:55px;
+height:55px;
+display:flex;
+align-items:center;
+justify-content:center;
 border-radius:50%;
+font-size:22px;
 }
 
-/* ANIM */
+/* ANIMACIONES */
 .hidden{
 opacity:0;
 transform:translateY(40px);
-transition:.8s;
+transition:all .8s ease;
 }
 
 .show{
 opacity:1;
 transform:translateY(0);
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.hero h1{font-size:3rem;}
 }
 </style>
 </head>
@@ -191,7 +221,7 @@ transform:translateY(0);
 
 <!-- AUDIO -->
 <audio id="music" loop>
-<source src="/music/perfect.mp3" type="audio/mpeg">
+<source src="music/Photograph.mp3" type="audio/mpeg">
 </audio>
 
 <!-- HERO -->
@@ -199,7 +229,11 @@ transform:translateY(0);
 <div class="hero-content">
 <p>Mis 15 años</p>
 <h1>Maria Kamila Tobon</h1>
-<p>Hoy celebro la vida, los sueños y el amor infinito que llevo en mi corazón. Una noche mágica que marcará el inicio de una nueva etapa llena de ilusiones.</p>
+<p>
+Hoy celebro la vida de una niña maravillosa, dulce y soñadora…  
+mi consentida, mi alegría, mi orgullo infinito.  
+Una noche mágica para la niña más hermosa, sensible y especial del mundo.
+</p>
 <button class="btn" onclick="scrollNext()">Descubrir</button>
 </div>
 </section>
@@ -234,12 +268,12 @@ transform:translateY(0);
 <section class="hidden">
 <h2 class="title">Galería</h2>
 <div class="gallery">
-<img src="/images/IMGS (1).jpg">
-<img src="/images/IMGS (5).jpg">
-<img src="/images/IMGS (8).jpg">
-<img src="/images/IMGS (12).jpg">
-<img src="/images/IMGS (16).jpg">
-<img src="/images/IMGS (18).jpg">
+<img src="images/foto1.jpg" loading="lazy">
+<img src="images/foto2.jpg" loading="lazy">
+<img src="images/foto3.jpg" loading="lazy">
+<img src="images/foto4.jpg" loading="lazy">
+<img src="images/foto5.jpg" loading="lazy">
+<img src="images/foto6.jpg" loading="lazy">
 </div>
 </section>
 
@@ -247,7 +281,9 @@ transform:translateY(0);
 <section class="rsvp hidden">
 <h2 class="title">Confirmación</h2>
 <p>Confirmar antes del 24 de abril 2026</p>
-<a class="btn" href="https://wa.me/573114802534?text=Hola%20quiero%20confirmar%20mi%20asistencia%20a%20los%2015%20de%20Kamila%20✨" target="_blank">Confirmar asistencia</a>
+<a class="btn" href="https://wa.me/573114802534?text=Hola%20✨%20confirmo%20con%20mucho%20cariño%20mi%20asistencia%20a%20los%2015%20de%20Maria%20Kamila%20💖" target="_blank">
+Confirmar asistencia
+</a>
 </section>
 
 <!-- FOOTER -->
@@ -259,7 +295,7 @@ transform:translateY(0);
 <a class="whatsapp" href="https://wa.me/573114802534" target="_blank">💬</a>
 
 <script>
-// INTRO + MUSIC
+// INTRO + MUSICA
 function start(){
 document.getElementById("intro").style.display="none";
 document.getElementById("music").play();
@@ -272,20 +308,25 @@ window.scrollBy({top:window.innerHeight,behavior:'smooth'});
 
 // COUNTDOWN
 const fecha=new Date("2026-05-01T19:00:00");
+
 setInterval(()=>{
 let diff=fecha-new Date();
+
 document.getElementById("d").innerText=Math.floor(diff/86400000);
 document.getElementById("h").innerText=Math.floor(diff/3600000)%24;
 document.getElementById("m").innerText=Math.floor(diff/60000)%60;
 },1000);
 
 // ANIMACIONES
-const obs=new IntersectionObserver(e=>{
-e.forEach(x=>{
-if(x.isIntersecting)x.target.classList.add("show");
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
 });
 });
-document.querySelectorAll(".hidden").forEach(el=>obs.observe(el));
+
+document.querySelectorAll(".hidden").forEach(el=>observer.observe(el));
 </script>
 
 </body>
