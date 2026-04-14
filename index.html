@@ -59,28 +59,38 @@ transition:.3s;
 background:var(--gold);
 }
 
-/* HERO */
+/* HERO (MEJORADO PARA MOBILE) */
 .hero{
-height:100vh;
-background:url('images/portada.jpg') center/cover no-repeat;
 position:relative;
+height:100vh;
 display:flex;
 align-items:center;
 justify-content:center;
-text-align:center;
+overflow:hidden;
+}
+
+.hero-img{
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;
+top:0;
+left:0;
 }
 
 .hero::before{
 content:"";
 position:absolute;
 inset:0;
-background:rgba(0,0,0,0.6);
+background:rgba(0,0,0,0.55);
+z-index:1;
 }
 
 .hero-content{
 position:relative;
 z-index:2;
-max-width:600px;
+padding:20px;
+max-width:500px;
 }
 
 .hero h1{
@@ -137,6 +147,8 @@ border-radius:12px;
 display:flex;
 gap:20px;
 margin-top:20px;
+flex-wrap:wrap;
+justify-content:center;
 }
 
 .countdown div{
@@ -206,7 +218,8 @@ transform:translateY(0);
 
 /* RESPONSIVE */
 @media(max-width:768px){
-.hero h1{font-size:3rem;}
+.hero h1{font-size:2.5rem;}
+.hero p{font-size:0.95rem;}
 }
 </style>
 </head>
@@ -224,8 +237,10 @@ transform:translateY(0);
 <source src="music/Photograph.mp3" type="audio/mpeg">
 </audio>
 
-<!-- HERO -->
+<!-- HERO NUEVO -->
 <section class="hero">
+<img src="images/foto1.jpg" class="hero-img">
+
 <div class="hero-content">
 <p>Mis 15 años</p>
 <h1>Maria Kamila Tobon</h1>
