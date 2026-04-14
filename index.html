@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mis 15 - Maria Kamila Tobon</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display&family=Montserrat&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -14,8 +14,6 @@
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
-
-html{scroll-behavior:smooth;}
 
 body{
 font-family:'Montserrat',sans-serif;
@@ -28,7 +26,7 @@ overflow:hidden;
 .intro{
 position:fixed;
 inset:0;
-background:url('images/intro-bg.jpg') center/cover no-repeat;
+background:url('images/intro-bg.png') center/cover no-repeat;
 display:flex;
 justify-content:center;
 align-items:center;
@@ -36,7 +34,6 @@ z-index:999;
 text-align:center;
 }
 
-/* overlay */
 .intro::before{
 content:"";
 position:absolute;
@@ -55,7 +52,6 @@ font-size:3.5rem;
 text-shadow:0 0 25px rgba(212,175,55,0.8);
 }
 
-/* BOTÓN */
 .intro button{
 margin-top:30px;
 padding:14px 35px;
@@ -64,7 +60,6 @@ border:2px solid var(--gold);
 background:transparent;
 color:white;
 cursor:pointer;
-transition:.3s;
 }
 
 .intro button:hover{
@@ -84,7 +79,6 @@ height:100vh;
 display:flex;
 align-items:center;
 justify-content:center;
-overflow:hidden;
 }
 
 .hero-img{
@@ -105,7 +99,6 @@ background:rgba(0,0,0,0.5);
 position:relative;
 z-index:2;
 text-align:center;
-padding:20px;
 }
 
 .hero h1{
@@ -126,7 +119,7 @@ padding:40px;
 
 .title{
 font-family:'Playfair Display';
-font-size:2.2rem;
+font-size:2rem;
 margin-bottom:10px;
 }
 
@@ -136,11 +129,7 @@ padding:20px;
 border-radius:10px;
 }
 
-.countdown{
-display:flex;
-gap:15px;
-}
-
+/* GALERIA */
 .gallery{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -188,7 +177,7 @@ border-radius:50%;
 <source src="music/Photograph.mp3" type="audio/mpeg">
 </audio>
 
-<!-- CONTENIDO REAL -->
+<!-- CONTENIDO -->
 <div id="contenido">
 
 <section class="hero">
@@ -208,20 +197,14 @@ border-radius:50%;
 </section>
 
 <section>
-<h2 class="title">Cuenta regresiva</h2>
-<div class="countdown">
-<div><span id="d"></span><br>Días</div>
-<div><span id="h"></span><br>Horas</div>
-<div><span id="m"></span><br>Min</div>
-</div>
-</section>
-
-<section>
 <h2 class="title">Galería</h2>
 <div class="gallery">
 <img src="images/foto1.jpg">
-<img src="images/foto2.jpg">
-<img src="images/foto3.jpg">
+<img src="images/foto5.jpg">
+<img src="images/foto8.jpg">
+<img src="images/foto12.jpg">
+<img src="images/foto16.jpg">
+<img src="images/foto18.jpg">
 </div>
 </section>
 
@@ -232,28 +215,15 @@ border-radius:50%;
 
 </div>
 
-<!-- WHATSAPP -->
 <a class="whatsapp" href="https://wa.me/573114802534">💬</a>
 
 <script>
-// ABRIR INVITACIÓN
 function start(){
 document.getElementById("intro").style.display="none";
 document.getElementById("contenido").style.display="block";
 document.body.style.overflow="auto";
 document.getElementById("music").play();
 }
-
-// COUNTDOWN
-const fecha=new Date("2026-05-01T19:00:00");
-
-setInterval(()=>{
-let diff=fecha-new Date();
-
-document.getElementById("d").innerText=Math.floor(diff/86400000);
-document.getElementById("h").innerText=Math.floor(diff/3600000)%24;
-document.getElementById("m").innerText=Math.floor(diff/60000)%60;
-},1000);
 </script>
 
 </body>
