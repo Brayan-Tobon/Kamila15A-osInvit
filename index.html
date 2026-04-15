@@ -203,9 +203,18 @@ section{
 /* CONTENEDOR */
 .contenedor-fecha{
   display:flex;
-  gap:30px;
-  flex-wrap:wrap;
+  gap:40px;
   justify-content:center;
+  align-items:stretch;
+  flex-wrap:nowrap; /* 👈 CLAVE: evita que bajen */
+}
+
+/* Responsive solo en móvil */
+@media(max-width:768px){
+  .contenedor-fecha{
+    flex-direction:column;
+    flex-wrap:wrap;
+  }
 }
 
 /* TARJETAS */
