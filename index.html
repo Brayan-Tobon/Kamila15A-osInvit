@@ -191,6 +191,115 @@ section{
   100%{transform:translateY(0);}
 }
 
+/* ========================================= */
+/* 💎 SECCIÓN FECHA + PADRES */
+/* ========================================= */
+
+.fecha-section{
+  flex-direction:column;
+  gap:40px;
+}
+
+/* CONTENEDOR */
+.contenedor-fecha{
+  display:flex;
+  gap:30px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+/* TARJETAS */
+.card{
+  border:1px solid var(--gold);
+  border-radius:20px;
+  padding:30px;
+  width:320px;
+
+  background:rgba(0,0,0,0.65);
+  backdrop-filter:blur(10px);
+
+  box-shadow:
+    0 0 20px rgba(212,175,55,0.2),
+    0 0 40px rgba(212,175,55,0.1);
+
+  transition:0.3s;
+}
+
+/* HOVER SUAVE */
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:
+    0 0 30px rgba(212,175,55,0.4);
+}
+
+/* TITULOS */
+.titulo-card{
+  font-size:20px;
+  margin-bottom:15px;
+  color:white;
+}
+
+/* PADRES */
+.padre{
+  font-family:'Playfair Display';
+  font-size:18px;
+}
+
+.rol{
+  font-size:13px;
+  color:#bbb;
+}
+
+/* LINEA */
+.linea{
+  width:50px;
+  height:2px;
+  background:var(--gold);
+  margin:15px auto;
+}
+
+/* FECHA */
+.fecha-texto{
+  font-size:18px;
+}
+
+.hora-texto{
+  margin-bottom:10px;
+  color:#ddd;
+}
+
+/* CONTADOR */
+.faltan{
+  color:var(--gold);
+  margin:10px 0;
+}
+
+.count{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  min-width:70px;
+}
+
+.count span{
+  font-size:18px;
+}
+
+.count small{
+  font-size:11px;
+  color:#aaa;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .contenedor-fecha{
+    flex-direction:column;
+    align-items:center;
+  }
+}
+
+
+   
 /* =====================================================
    TARJETAS GENERALES
 ===================================================== */
@@ -462,7 +571,57 @@ donde los sueños comienzan a hacerse realidad
 </div>
 </section>
 
-<!-- FECHA + CONTADOR -->
+<!-- ========================================= -->
+<!-- 📅 INVITAN + FECHA (DOBLE TARJETA) -->
+<!-- ========================================= -->
+
+<section class="fecha-section">
+
+  <div class="contenedor-fecha">
+
+    <!-- 👨‍👩‍👧 TARJETA PADRES -->
+    <div class="card card-padres">
+
+      <h3 class="titulo-card">Invitan</h3>
+
+      <p class="padre">Daniela Carolina Cruz</p>
+      <span class="rol">Madre</span>
+
+      <div class="linea"></div>
+
+      <p class="padre">Albert Brayan Tobon</p>
+      <span class="rol">Padre</span>
+
+    </div>
+
+    <!-- 📅 TARJETA FECHA -->
+    <div class="card card-fecha">
+
+      <h3 class="titulo-card">Fecha del evento</h3>
+
+      <p class="fecha-texto">02 de Mayo 2026</p>
+      <p class="hora-texto">7:00 PM</p>
+
+      <h4 class="faltan">Falta</h4>
+
+      <div class="countdown">
+        <div class="count"><span id="d"></span><small>días</small></div>
+        <div class="count"><span id="h"></span><small>hs</small></div>
+        <div class="count"><span id="m"></span><small>min</small></div>
+        <div class="count"><span id="s"></span><small>seg</small></div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- BOTÓN -->
+  <button class="btn" onclick="siguienteSeccion(this)">
+    Donde nos vemos <span>↓</span>
+  </button>
+
+</section>
+   <!-- FECHA + CONTADOR -->
 <section class="cards">
 <div class="card">
 <h2>Fecha del evento</h2>
