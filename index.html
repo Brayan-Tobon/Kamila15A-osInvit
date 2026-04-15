@@ -339,65 +339,62 @@ section{
 }
 
 /* =========================
-   RESPONSIVE (MOBILE)
+   RESPONSIVE Padres-Fecha -*Contador
 ========================= */
 @media(max-width:768px){
-  .fecha-section{
+ .fecha-section{
     align-items:center;
-    padding:60px 20px;
+    padding:30px 15px;
+    gap:20px;
   }
   /* CONTENEDOR */
   .contenedor-fecha{
     flex-direction:column;
     align-items:center;
-    gap:30px;
+    gap:20px;
   }
-  /* TARJETAS */
+  /* TARJETAS MÁS COMPACTAS */
   .card{
     width:100%;
-    max-width:360px;
-    min-height:auto;
-    padding:28px 18px;
+    max-width:340px;
+    min-height:auto;       
+    padding:22px 15px;      
   }
-  /* TEXTOS MÁS COMPACTOS */
+  /* TEXTOS MÁS PEQUEÑOS */
   .titulo-card{
-    font-size:26px;
+    font-size:24px;
+    margin-bottom:15px;
   }
   .padre{
-    font-size:22px;
+    font-size:20px;
   }
   .fecha-texto{
-    font-size:18px;
+    font-size:16px;
   }
-  /* CONTADOR PERFECTO MOBILE */
+  .hora-texto{
+    font-size:14px;
+    margin-bottom:10px;
+  }
+  .falta{
+    font-size:22px;
+    margin-bottom:10px;
+  }
+  /* CONTADOR MÁS COMPACTO */
   .contador{
     grid-template-columns: repeat(2, 1fr);
-    gap:10px;
+    gap:8px;
+    margin-top:10px;
   }
   .contador div{
-    font-size:14px;
-    padding:10px;
+    font-size:13px;
+    padding:8px;
+    min-width:50px;
   }
-.fecha-section .btn{
-  margin-top:10px;
-  margin-bottom:10px;
-}
-/* =====================================================
-   TARJETAS GENERALES
-===================================================== */
-.cards{
-  flex-direction:column;
-  gap:30px;
-}
-
-.card{
-  border:1px solid var(--gold);
-  padding:30px;
-  border-radius:15px;
-  max-width:400px;
-  width:100%;
-  background:rgba(255,255,255,0.02);
-  backdrop-filter:blur(5px);
+  .fecha-section .btn{
+    margin-top:5px;
+    padding:12px 25px;
+    font-size:13px;
+  }
 }
 
 /* =====================================================
