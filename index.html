@@ -184,6 +184,82 @@ section{
   min-width:65px;
 }
 
+/* 📍 SECCIÓN LUGAR PREMIUM */
+/* ========================================= */
+
+.lugar{
+  flex-direction:column;
+  gap:40px;
+  position:relative;
+}
+
+/* TARJETA PRINCIPAL */
+.card-lugar{
+  background: rgba(0,0,0,0.65);
+  border:1px solid var(--gold);
+  border-radius:25px;
+  padding:40px 30px;
+  max-width:500px;
+  width:90%;
+
+  /* EFECTO FLOTANTE */
+  box-shadow:
+    0 0 25px rgba(212,175,55,0.2),
+    0 0 60px rgba(212,175,55,0.1);
+
+  backdrop-filter: blur(10px);
+
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+
+  animation: fadeUp 1s ease;
+}
+
+/* TITULOS */
+.titulo-seccion{
+  font-size:26px;
+  color:white;
+  margin-bottom:5px;
+}
+
+/* TEXTOS */
+.lugar-nombre{
+  font-size:18px;
+  color:#ddd;
+}
+
+.direccion-texto{
+  font-size:16px;
+  color:#bbb;
+}
+
+/* DIVISOR */
+.divider{
+  width:60px;
+  height:2px;
+  background:var(--gold);
+  margin:15px auto;
+  opacity:0.6;
+}
+
+/* BOTÓN SIGUIENTE */
+.btn-next{
+  margin-top:10px;
+}
+
+/* ANIMACIÓN */
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+   
 /* =====================================================
    GALERIA CARRUSEL
 ===================================================== */
@@ -351,21 +427,35 @@ section{
 
 
 <!-- LUGAR -->
-<section class="cards">
-<div class="card">
-<h2>Lugar</h2>
-<p>Finca Chinauta El Castillo</p>
+<section class="lugar">
 
-<a class="btn" href="#">Confirmar asistencia</a>
+  <div class="card-lugar">
 
-<h2 style="margin-top:20px;">Dirección</h2>
-<p>Km 67 #37-52 Entrada Villa Amparo</p>
+    <h2 class="titulo-seccion">Lugar</h2>
+    <p class="lugar-nombre">Finca Chinauta El Castillo</p>
 
-<a class="btn" href="https://www.google.com/maps?q=Chinauta+El+Castillo" target="_blank">
-Ver ubicación
-</a>
-</div>
-<button class="btn" onclick="siguienteSeccion(this)"> ahora mirame fijamente <span>↓</span>
+    <a class="btn" href="https://wa.me/573114802534?text=Confirmo%20mi%20asistencia%20a%20los%2015%20de%20Maria%20Kamila%20Tobon" target="_blank">
+      Confirmar asistencia
+    </a>
+
+    <div class="divider"></div>
+
+    <h2 class="titulo-seccion">Dirección</h2>
+    <p class="direccion-texto">
+      Km 67 #37-52 Entrada Villa Amparo
+    </p>
+
+    <a class="btn" href="https://www.google.com/maps" target="_blank">
+      Ver ubicación
+    </a>
+
+  </div>
+
+  <!-- BOTÓN SIGUIENTE -->
+  <button class="btn btn-next" onclick="siguienteSeccion(this)">
+    Ahora mírame bien <span>↓</span>
+  </button>
+
 </section>
 
 <!-- GALERIA -->
