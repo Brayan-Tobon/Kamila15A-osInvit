@@ -14,7 +14,6 @@
 :root{ --gold:#d4af37; }
 
 *{margin:0;padding:0;box-sizing:border-box;}
-
 html{scroll-behavior:smooth;}
 
 body{
@@ -32,7 +31,6 @@ align-items:center;
 justify-content:center;
 text-align:center;
 padding:40px 20px;
-position:relative;
 }
 
 /* ===== INTRO ===== */
@@ -42,25 +40,18 @@ inset:0;
 background:url('images/intro-bg.png') center/cover no-repeat;
 z-index:999;
 }
-
 .intro::before{
 content:"";
 position:absolute;
 inset:0;
 background:rgba(0,0,0,0.6);
 }
-
-.intro-content{
-position:relative;
-z-index:2;
-}
-
+.intro-content{position:relative;z-index:2;}
 .intro h1{
 font-family:'Great Vibes';
 font-size:3.5rem;
 text-shadow:0 0 25px gold;
 }
-
 .intro button{
 margin-top:25px;
 padding:14px 40px;
@@ -72,47 +63,30 @@ cursor:pointer;
 }
 
 /* ===== HERO ===== */
-.hero{
-position:relative;
-}
-
+.hero{position:relative;}
 .hero img{
 position:absolute;
 width:100%;
 height:100%;
 object-fit:cover;
-object-position:center;
 z-index:0;
 }
-
 .hero::before{
 content:"";
 position:absolute;
 inset:0;
 background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.7));
 }
-
 .hero-content{
 position:relative;
 z-index:2;
 max-width:600px;
 }
-
-.hero h2{
-letter-spacing:3px;
-}
-
 .hero h1{
 font-family:'Great Vibes';
 font-size:3rem;
-margin:10px 0;
-text-shadow:0 0 20px rgba(212,175,55,0.6);
+text-shadow:0 0 20px gold;
 }
-
-.hero p{
-opacity:0.9;
-}
-
 .btn{
 margin-top:20px;
 padding:12px 28px;
@@ -123,12 +97,6 @@ color:white;
 cursor:pointer;
 text-decoration:none;
 display:inline-block;
-transition:.3s;
-}
-
-.btn:hover{
-background:var(--gold);
-color:black;
 }
 
 /* ===== TARJETAS ===== */
@@ -136,7 +104,6 @@ color:black;
 flex-direction:column;
 gap:30px;
 }
-
 .card{
 border:1px solid var(--gold);
 padding:30px;
@@ -144,24 +111,16 @@ border-radius:15px;
 max-width:400px;
 width:100%;
 background:rgba(255,255,255,0.02);
-box-shadow:0 0 30px rgba(212,175,55,0.08);
-animation:fadeUp 1s ease;
-}
-
-.card h2{
-font-family:'Playfair Display';
-margin-bottom:10px;
 }
 
 /* ===== COUNTDOWN ===== */
 .countdown{
 display:flex;
-justify-content:center;
 gap:10px;
-margin-top:15px;
 flex-wrap:wrap;
+justify-content:center;
+margin-top:15px;
 }
-
 .count{
 border:1px solid var(--gold);
 padding:10px;
@@ -169,64 +128,75 @@ border-radius:8px;
 min-width:65px;
 }
 
-.count span{
-font-size:1.4rem;
-display:block;
+/* ===== GALERIA ===== */
+.galeria{
+flex-direction:column;
 }
-
-/* ===== LUGAR ===== */
-.lugar .btn{
-margin-top:10px;
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:10px;
+max-width:1000px;
+}
+.grid img{
+width:100%;
+height:200px;
+object-fit:cover;
+border-radius:10px;
+transition:.3s;
+}
+.grid img:hover{
+transform:scale(1.05);
 }
 
 /* ===== DETALLES ===== */
 .detalles{
-background:#000;
 flex-direction:column;
 }
-
-.titulo-seccion{
-font-family:'Great Vibes';
-font-size:2.5rem;
-color:var(--gold);
-margin-bottom:40px;
-}
-
 .cards-detalle{
 display:flex;
-gap:30px;
+gap:20px;
 flex-wrap:wrap;
-justify-content:center;
 }
-
 .card-detalle{
-background:rgba(255,255,255,0.03);
-border:1px solid rgba(212,175,55,0.3);
-border-radius:15px;
-padding:30px;
+border:1px solid var(--gold);
+padding:20px;
+border-radius:10px;
 width:250px;
-transition:.3s;
 }
 
-.card-detalle:hover{
-transform:translateY(-10px);
-box-shadow:0 0 20px rgba(212,175,55,0.4);
+/* ===== INSTAGRAM ===== */
+.instagram{
+background:#0b1a2f;
+flex-direction:column;
+}
+.instagram h2{
+font-family:'Great Vibes';
+color:var(--gold);
+font-size:2.5rem;
+}
+.instagram .btn{
+background:#fff;
+color:black;
+border:none;
 }
 
-.icon{
-font-size:2rem;
-margin-bottom:10px;
-}
-
-/* ===== ANIMACIÓN ===== */
-@keyframes fadeUp{
-from{opacity:0; transform:translateY(40px);}
-to{opacity:1; transform:translateY(0);}
+/* ===== BOTON MUSICA ===== */
+.music-btn{
+position:fixed;
+top:20px;
+left:20px;
+background:#111;
+border:1px solid var(--gold);
+padding:10px;
+border-radius:50%;
+cursor:pointer;
+z-index:1000;
 }
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:768px){
-.hero h1{font-size:2.3rem;}
+.hero h1{font-size:2.2rem;}
 .intro h1{font-size:2.5rem;}
 }
 
@@ -235,7 +205,11 @@ to{opacity:1; transform:translateY(0);}
 
 <body>
 
-<!-- ================= INTRO ================= -->
+<!-- MUSICA -->
+<audio id="music" src="music/Photograph.mp3" loop></audio>
+<div class="music-btn" onclick="toggleMusic()">🔊</div>
+
+<!-- INTRO -->
 <section class="intro" id="intro">
 <div class="intro-content">
 <h1>Maria Kamila Tobon</h1>
@@ -245,53 +219,42 @@ to{opacity:1; transform:translateY(0);}
 
 <div id="contenido" style="display:none">
 
-<!-- ================= HERO ================= -->
+<!-- HERO -->
 <section class="hero">
 <img src="images/portada.jpeg">
-
 <div class="hero-content">
 <h2>Mis 15 años</h2>
 <h1>Maria Kamila Tobon</h1>
-
-<p>
-Hoy comienza una nueva etapa llena de sueños, ilusión y momentos inolvidables.
-</p>
-
+<p>Hoy comienza una nueva etapa llena de sueños e ilusión ✨</p>
 <button class="btn" onclick="scrollNext()">Descubrir</button>
 </div>
 </section>
 
-<!-- ================= FECHA + COUNTDOWN ================= -->
+<!-- FECHA -->
 <section class="cards">
-
 <div class="card">
 <h2>Fecha del evento</h2>
 <p>02 de Mayo 2026</p>
 <p>7:00 PM</p>
 
-<h2 style="color:gold;margin-top:15px;">Falta</h2>
+<h3 style="color:gold;margin-top:15px;">Falta</h3>
 
 <div class="countdown">
-<div class="count"><span id="d">0</span>días</div>
-<div class="count"><span id="h">0</span>hs</div>
-<div class="count"><span id="m">0</span>min</div>
-<div class="count"><span id="s">0</span>seg</div>
+<div class="count"><span id="d"></span>días</div>
+<div class="count"><span id="h"></span>hs</div>
+<div class="count"><span id="m"></span>min</div>
+<div class="count"><span id="s"></span>seg</div>
 </div>
-
 </div>
-
 </section>
 
-<!-- ================= LUGAR ================= -->
-<section class="cards lugar">
-
+<!-- LUGAR -->
+<section class="cards">
 <div class="card">
 <h2>Lugar</h2>
 <p>Finca Chinauta El Castillo</p>
 
-<a class="btn" href="#" target="_blank">
-Confirmar asistencia
-</a>
+<a class="btn" href="#">Confirmar asistencia</a>
 
 <h2 style="margin-top:20px;">Dirección</h2>
 <p>Km 67 #37-52 Entrada Villa Amparo</p>
@@ -299,68 +262,97 @@ Confirmar asistencia
 <a class="btn" href="https://www.google.com/maps?q=Chinauta+El+Castillo" target="_blank">
 Ver ubicación
 </a>
-
 </div>
-
 </section>
 
-<!-- ================= DETALLES ================= -->
-<section class="detalles">
+<!-- GALERIA -->
+<section class="galeria">
+<h2 style="font-family:'Great Vibes';color:gold;">Un recorrido de sus 15 años</h2>
 
-<h2 class="titulo-seccion">Detalles del evento</h2>
+<div class="grid">
+<img src="images/galeria1.jpg">
+<img src="images/galeria2.jpg">
+<img src="images/galeria3.jpg">
+<img src="images/galeria4.jpg">
+<img src="images/galeria5.jpg">
+<img src="images/galeria6.jpg">
+<img src="images/galeria7.jpg">
+<img src="images/galeria8.jpg">
+<img src="images/galeria9.jpg">
+<img src="images/galeria10.jpg">
+</div>
+</section>
+
+<!-- DETALLES -->
+<section class="detalles">
+<h2 style="font-family:'Great Vibes';color:gold;">Detalles</h2>
 
 <div class="cards-detalle">
 
 <div class="card-detalle">
-<div class="icon">🎵</div>
-<h3>Música</h3>
-<p>Una noche mágica llena de momentos inolvidables.</p>
+<h3>🎵 Música</h3>
+<p>Una noche inolvidable</p>
 </div>
 
 <div class="card-detalle">
-<div class="icon">👗</div>
-<h3>Dress Code</h3>
-<p>Elegante ✨</p>
+<h3>👗 Dress Code</h3>
+<p>Elegante</p>
 </div>
 
 <div class="card-detalle">
-<div class="icon">🎁</div>
-<h3>Un detalle</h3>
-<p>Tu presencia es el mejor regalo 💛</p>
+<h3>🎁 Nota</h3>
+<p>Tu presencia es el mejor regalo</p>
 </div>
 
 </div>
+</section>
 
+<!-- INSTAGRAM -->
+<section class="instagram">
+<h2>#15Kamila</h2>
+<p>Comparte tus fotos del evento</p>
+
+<a class="btn" href="https://instagram.com" target="_blank">
+Ver en Instagram
+</a>
 </section>
 
 </div>
 
 <script>
 
-/* ===== INTRO ===== */
+/* INTRO */
 function abrir(){
 document.getElementById("intro").style.display="none";
 document.getElementById("contenido").style.display="block";
 document.body.style.overflow="auto";
+
+/* autoplay musica */
+document.getElementById("music").play();
 }
 
-/* ===== SCROLL ===== */
+/* SCROLL */
 function scrollNext(){
 window.scrollBy({top: window.innerHeight, behavior:'smooth'});
 }
 
-/* ===== COUNTDOWN ===== */
+/* COUNTDOWN */
 const fecha = new Date("2026-05-02T19:00:00");
 
 setInterval(()=>{
-let ahora = new Date();
-let diff = fecha - ahora;
+let diff = fecha - new Date();
 
 document.getElementById("d").innerText = Math.floor(diff/(1000*60*60*24));
 document.getElementById("h").innerText = Math.floor(diff/(1000*60*60)%24);
 document.getElementById("m").innerText = Math.floor(diff/(1000*60)%60);
 document.getElementById("s").innerText = Math.floor(diff/1000%60);
 },1000);
+
+/* MUSICA */
+function toggleMusic(){
+let m = document.getElementById("music");
+m.paused ? m.play() : m.pause();
+}
 
 </script>
 
