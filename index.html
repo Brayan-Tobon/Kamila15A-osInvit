@@ -10,11 +10,14 @@
 
 <style>
 
+/* ===== VARIABLES ===== */
 :root{
 --gold:#d4af37;
 --white:#fff;
+--soft:#1a1a1a;
 }
 
+/* ===== RESET ===== */
 *{margin:0;padding:0;box-sizing:border-box;}
 
 html{scroll-behavior:smooth;}
@@ -107,10 +110,7 @@ object-position:center top;
 content:"";
 position:absolute;
 inset:0;
-background:linear-gradient(
-rgba(0,0,0,0.6),
-rgba(0,0,0,0.7)
-);
+background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7));
 }
 
 .hero-content{
@@ -156,17 +156,64 @@ background:var(--gold);
 color:black;
 }
 
+/* ================= FECHA ================= */
+
+.fecha{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:40px;
+background:#000;
+}
+
+.fecha-content{
+border:1px solid var(--gold);
+padding:40px 50px;
+border-radius:15px;
+background:rgba(255,255,255,0.02);
+backdrop-filter:blur(8px);
+animation:fadeUp 1.2s ease;
+}
+
+.fecha h2{
+font-family:'Playfair Display';
+font-size:2.2rem;
+margin-bottom:20px;
+}
+
+.fecha p{
+font-size:1.2rem;
+margin:5px 0;
+letter-spacing:1px;
+}
+
+/* ================= ANIMACIÓN ================= */
+
 @keyframes fadeUp{
-from{opacity:0;transform:translateY(40px);}
-to{opacity:1;transform:translateY(0);}
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
 }
 
 /* ================= RESPONSIVE ================= */
 
 @media(max-width:768px){
+
 .intro h1{font-size:2.5rem;}
 .hero h1{font-size:2.5rem;}
 .hero p{font-size:0.95rem;}
+
+.fecha-content{
+padding:25px;
+}
+
 }
 
 </style>
@@ -188,8 +235,6 @@ to{opacity:1;transform:translateY(0);}
 
 <!-- HERO -->
 <section class="hero">
-
-    <!-- 🔥 AQUÍ USAMOS TU IMAGEN REAL -->
     <img src="images/portada.jpeg" class="hero-img">
 
     <div class="hero-content">
@@ -202,7 +247,15 @@ to{opacity:1;transform:translateY(0);}
 
         <button class="btn" onclick="scrollNext()">Descubrir</button>
     </div>
+</section>
 
+<!-- FECHA -->
+<section class="fecha">
+    <div class="fecha-content">
+        <h2>Fecha del evento</h2>
+        <p>02 de Mayo 2026</p>
+        <p>7:00 PM</p>
+    </div>
 </section>
 
 </div>
