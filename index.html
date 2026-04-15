@@ -81,7 +81,8 @@ position:absolute;
 width:100%;
 height:100%;
 object-fit:cover;
-object-position:center center; /* 🔥 FIX IMPORTANTE */
+object-position:center;
+z-index:0;
 }
 
 .hero::before{
@@ -178,6 +179,45 @@ display:block;
 margin-top:10px;
 }
 
+/* ===== DETALLES ===== */
+.detalles{
+background:#000;
+flex-direction:column;
+}
+
+.titulo-seccion{
+font-family:'Great Vibes';
+font-size:2.5rem;
+color:var(--gold);
+margin-bottom:40px;
+}
+
+.cards-detalle{
+display:flex;
+gap:30px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.card-detalle{
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(212,175,55,0.3);
+border-radius:15px;
+padding:30px;
+width:250px;
+transition:.3s;
+}
+
+.card-detalle:hover{
+transform:translateY(-10px);
+box-shadow:0 0 20px rgba(212,175,55,0.4);
+}
+
+.icon{
+font-size:2rem;
+margin-bottom:10px;
+}
+
 /* ===== ANIMACIÓN ===== */
 @keyframes fadeUp{
 from{opacity:0; transform:translateY(40px);}
@@ -264,26 +304,30 @@ Ver ubicación
 
 </section>
 
-<!-- ================= ESPACIO GALERÍA (SIGUIENTE) ================= -->
-<section class="galeria">
+<!-- ================= DETALLES ================= -->
+<section class="detalles">
 
-<h2 class="titulo-galeria">Un recorrido de estos 15 años</h2>
-<p class="sub">Momentos que hacen esta historia única ✨</p>
+<h2 class="titulo-seccion">Detalles del evento</h2>
 
-<div class="slider">
+<div class="cards-detalle">
 
-<div class="slide"><img src="images/galeria1.jpg"></div>
-<div class="slide"><img src="images/galeria2.jpg"></div>
-<div class="slide"><img src="images/galeria3.jpg"></div>
-<div class="slide"><img src="images/galeria4.jpg"></div>
-<div class="slide"><img src="images/galeria5.jpg"></div>
-<div class="slide"><img src="images/galeria6.jpg"></div>
-<div class="slide"><img src="images/galeria7.jpg"></div>
-<div class="slide"><img src="images/galeria8.jpg"></div>
-<div class="slide"><img src="images/galeria9.jpg"></div>
-<div class="slide"><img src="images/galeria10.jpg"></div>
-<div class="slide"><img src="images/galeria11.jpg"></div>
-<div class="slide"><img src="images/galeria12.jpg"></div>
+<div class="card-detalle">
+<div class="icon">🎵</div>
+<h3>Música</h3>
+<p>Una noche mágica llena de momentos inolvidables.</p>
+</div>
+
+<div class="card-detalle">
+<div class="icon">👗</div>
+<h3>Dress Code</h3>
+<p>Elegante ✨</p>
+</div>
+
+<div class="card-detalle">
+<div class="icon">🎁</div>
+<h3>Un detalle</h3>
+<p>Tu presencia es el mejor regalo 💛</p>
+</div>
 
 </div>
 
@@ -293,48 +337,19 @@ Ver ubicación
 
 <script>
 
-<!-- ================= DETALLES ================= -->
-<section class="detalles">
-
-<h2 class="titulo-seccion">Detalles del evento</h2>
-
-<div class="cards">
-
-<div class="card">
-<div class="icon">🎵</div>
-<h3>Música</h3>
-<p>Disfrutaremos una noche mágica con momentos inolvidables y canciones especiales.</p>
-</div>
-
-<div class="card">
-<div class="icon">👗</div>
-<h3>Dress Code</h3>
-<p>Elegante ✨<br>Vístete para una noche única y especial.</p>
-</div>
-
-<div class="card">
-<div class="icon">🎁</div>
-<h3>Un detalle</h3>
-<p>Tu presencia es el mejor regalo, pero si deseas tener un detalle será bien recibido.</p>
-</div>
-
-</div>
-
-</section>
-
-/* intro */
+/* ===== INTRO ===== */
 function abrir(){
 document.getElementById("intro").style.display="none";
 document.getElementById("contenido").style.display="block";
 document.body.style.overflow="auto";
 }
 
-/* scroll */
+/* ===== SCROLL ===== */
 function scrollNext(){
 window.scrollBy({top: window.innerHeight, behavior:'smooth'});
 }
 
-/* countdown */
+/* ===== COUNTDOWN ===== */
 const fecha = new Date("2026-05-02T19:00:00");
 
 setInterval(()=>{
