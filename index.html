@@ -204,9 +204,6 @@ section{
   100%{transform:translateX(-50%);}
 }
 
-/* =====================================================
-   DETALLES (AQUI ESTABA EL ERROR)
-===================================================== */
 .detalles{
   flex-direction:column;
 }
@@ -219,7 +216,6 @@ section{
   max-width:900px;
 }
 
-/* 🔥 ESTE FALTABA (POR ESO SE ROMPIÓ) */
 .card-detalle{
   border:1px solid var(--gold);
   padding:25px;
@@ -228,6 +224,16 @@ section{
   background:rgba(255,255,255,0.02);
 }
 
+/* ===== IR A SIGUIENTE SECCION ===== */
+function siguienteSeccion(btn){
+  const section = btn.closest("section"); // sección actual
+  const next = section.nextElementSibling; // siguiente sección
+  
+  if(next){
+    next.scrollIntoView({behavior:"smooth"});
+  }
+}
+ 
 /* =====================================================
    INSTAGRAM
 ===================================================== */
@@ -304,7 +310,7 @@ section{
 <h2>Mis 15 años</h2>
 <h1>Maria Kamila Tobon</h1>
 <p>Hoy comienza una nueva etapa llena de sueños e ilusión ✨</p>
-<button class="btn" onclick="scrollNext()">Descubrir</button>
+<button class="btn" onclick="siguienteSeccion(this)">Descubrir ↓</button>
 </div>
 </section>
 
@@ -323,8 +329,10 @@ section{
 <div class="count"><span id="m"></span>min</div>
 <div class="count"><span id="s"></span>seg</div>
 </div>
+<button class="btn" onclick="siguienteSeccion(this)">Siguiente ↓</button>
 </div>
 </section>
+
 
 <!-- LUGAR -->
 <section class="cards">
@@ -341,6 +349,7 @@ section{
 Ver ubicación
 </a>
 </div>
+<button class="btn" onclick="siguienteSeccion(this)">Siguiente ↓</button>
 </section>
 
 <!-- GALERIA -->
@@ -365,6 +374,7 @@ Ver ubicación
 <img src="images/galeria6.jpg">
 
 </div>
+<button class="btn" onclick="siguienteSeccion(this)">Ver más ↓</button>
 </div>
 </section>
 
@@ -389,6 +399,8 @@ Ver ubicación
 <p>Tu presencia es el mejor regalo</p>
 </div>
 
+<button class="btn" onclick="siguienteSeccion(this)">  Siguiente ↓</button>
+   
 </div>
 </section>
 
