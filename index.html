@@ -196,35 +196,28 @@ section{
    MOBILE PERFECTO
 ========================= */
 @media(max-width:768px){
-
   .hero{
     padding:40px 20px;
   }
-
   .hero-content{
     max-width:100%;
   }
-
   .nombre{
     font-size:2.8rem; /* 👈 tamaño ideal móvil */
     line-height:1.2;
     white-space:normal; /* 👈 permite dividir */
   }
-
   .hero h2{
     font-size:12px;
     letter-spacing:2px;
   }
-
   .hero p{
     font-size:14px;
   }
-
   .btn{
     padding:12px 30px;
     font-size:13px;
   }
-
 }
 
 /* =========================================
@@ -349,40 +342,41 @@ section{
    RESPONSIVE (MOBILE)
 ========================= */
 @media(max-width:768px){
-
-  /* SECCIONES */
-  section{
-    min-height:auto;
+  .fecha-section{
+    align-items:center;
     padding:60px 20px;
-    align-items:flex-start;
   }
-
   /* CONTENEDOR */
   .contenedor-fecha{
     flex-direction:column;
     align-items:center;
-    gap:40px;
+    gap:30px;
   }
-
   /* TARJETAS */
   .card{
-    width:90%;
-    max-width:420px;
-    padding:30px 20px;
+    width:100%;
+    max-width:360px;
+    min-height:auto;
+    padding:28px 18px;
   }
-
-  /* TEXTOS */
+  /* TEXTOS MÁS COMPACTOS */
   .titulo-card{
-    font-size:28px;
+    font-size:26px;
   }
-
   .padre{
-    font-size:24px;
+    font-size:22px;
   }
-
-  /* CONTADOR */
+  .fecha-texto{
+    font-size:18px;
+  }
+  /* CONTADOR PERFECTO MOBILE */
   .contador{
-    grid-template-columns: repeat(2, 1fr); /* 2x2 perfecto */
+    grid-template-columns: repeat(2, 1fr);
+    gap:10px;
+  }
+  .contador div{
+    font-size:14px;
+    padding:10px;
   }
 
 }
