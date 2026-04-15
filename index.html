@@ -6,21 +6,14 @@
 
 <title>Mis 15 - Maria Kamila Tobon</title>
 
-<!-- ================= FUENTES ================= -->
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
 
-/* =====================================================
-   VARIABLES GLOBALES
-===================================================== */
-:root{ 
-  --gold:#d4af37; 
-}
+/* ===== VARIABLES ===== */
+:root{ --gold:#d4af37; }
 
-/* =====================================================
-   RESET GENERAL
-===================================================== */
+/* ===== RESET ===== */
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 
@@ -31,9 +24,27 @@ body{
   overflow:hidden;
 }
 
-/* =====================================================
-   ESTRUCTURA BASE DE SECCIONES
-===================================================== */
+/* ===== FONDO LUJO (ESTRELLAS) ===== */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(2px 2px at 20% 30%, gold, transparent),
+    radial-gradient(2px 2px at 70% 60%, gold, transparent),
+    radial-gradient(1px 1px at 40% 80%, white, transparent),
+    radial-gradient(1px 1px at 90% 20%, gold, transparent);
+  animation:stars 8s linear infinite;
+  opacity:0.3;
+  z-index:-1;
+}
+
+@keyframes stars{
+  from{transform:translateY(0);}
+  to{transform:translateY(-100px);}
+}
+
+/* ===== SECCIONES ===== */
 section{
   min-height:100vh;
   display:flex;
@@ -43,9 +54,34 @@ section{
   padding:40px 20px;
 }
 
-/* =====================================================
-   INTRO (pantalla inicial)
-===================================================== */
+/* ===== BOTONES PREMIUM ===== */
+.btn{
+  margin-top:25px;
+  padding:14px 40px;
+  border-radius:40px;
+  border:1px solid var(--gold);
+  background:transparent;
+  color:white;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.btn:hover{
+  background:var(--gold);
+  color:black;
+  box-shadow:0 0 25px var(--gold);
+}
+
+.btn span{
+  margin-left:8px;
+  animation:flecha 1.2s infinite;
+}
+
+@keyframes flecha{
+  50%{transform:translateY(6px);}
+}
+
+/* ===== INTRO ===== */
 .intro{
   position:fixed;
   inset:0;
@@ -60,27 +96,13 @@ section{
   background:rgba(0,0,0,0.6);
 }
 
-.intro-content{position:relative;z-index:2;}
-
 .intro h1{
   font-family:'Great Vibes';
   font-size:3.5rem;
-  text-shadow:0 0 25px gold;
+  text-shadow:0 0 30px gold;
 }
 
-.intro button{
-  margin-top:25px;
-  padding:14px 40px;
-  border-radius:50px;
-  border:2px solid var(--gold);
-  background:transparent;
-  color:white;
-  cursor:pointer;
-}
-
-/* =====================================================
-   HERO (PORTADA)
-===================================================== */
+/* ===== HERO ===== */
 .hero{position:relative;}
 
 .hero img{
@@ -88,284 +110,103 @@ section{
   width:100%;
   height:100%;
   object-fit:cover;
-  z-index:0;
 }
 
 .hero::before{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.7));
+  background:rgba(0,0,0,0.5);
 }
 
-.hero-content{
-  position:relative;
-  z-index:2;
-  max-width:600px;
-}
+.hero-content{position:relative;z-index:2;}
 
 .hero h1{
   font-family:'Great Vibes';
   font-size:3rem;
-  text-shadow:0 0 20px gold;
+  text-shadow:0 0 25px gold;
 }
 
-/* BOTONES GENERALES */
-/* ===== BOTON ELEGANTE CON FLECHA ===== */
-.btn{
-  margin-top:25px;
-  padding:14px 40px;
-  border-radius:40px;
-  border:1px solid var(--gold);
-  background:transparent;
-  color:white;
-  cursor:pointer;
-  font-size:14px;
-  letter-spacing:1px;
-  position:relative;
-  overflow:hidden;
-  transition:0.3s;
-}
-
-/* efecto hover */
-.btn:hover{
-  background:var(--gold);
-  color:black;
-  box-shadow:0 0 20px var(--gold);
-}
-
-/* contenedor flecha */
-.btn span{
-  display:inline-block;
-  margin-left:8px;
-  animation:flechaBajar 1.2s infinite;
-}
-
-/* animación */
-@keyframes flechaBajar{
-  0%{transform:translateY(0);}
-  50%{transform:translateY(6px);}
-  100%{transform:translateY(0);}
-}
-
-/* =====================================================
-   TARJETAS GENERALES
-===================================================== */
-.cards{
-  flex-direction:column;
-  gap:30px;
-}
-
+/* ===== TARJETAS ===== */
 .card{
   border:1px solid var(--gold);
   padding:30px;
-  border-radius:15px;
-  max-width:400px;
-  width:100%;
-  background:rgba(255,255,255,0.02);
-  backdrop-filter:blur(5px);
+  border-radius:20px;
+  backdrop-filter:blur(10px);
+  background:rgba(0,0,0,0.6);
+  box-shadow:0 0 30px rgba(212,175,55,0.2);
 }
 
-/* =====================================================
-   CONTADOR
-===================================================== */
+/* ===== COUNTDOWN ===== */
 .countdown{
   display:flex;
   gap:10px;
-  flex-wrap:wrap;
   justify-content:center;
-  margin-top:15px;
+  flex-wrap:wrap;
 }
 
 .count{
   border:1px solid var(--gold);
   padding:10px;
-  border-radius:8px;
-  min-width:65px;
+  border-radius:10px;
 }
 
-/* 📍 SECCIÓN LUGAR PREMIUM */
-/* ========================================= */
+/* ===== LUGAR PREMIUM ===== */
+.lugar{flex-direction:column;gap:40px;}
 
-.lugar{
-  flex-direction:column;
-  gap:40px;
-  position:relative;
-}
-
-/* TARJETA PRINCIPAL */
 .card-lugar{
-  background: rgba(0,0,0,0.65);
   border:1px solid var(--gold);
   border-radius:25px;
-  padding:40px 30px;
-  max-width:500px;
-  width:90%;
-
-  /* EFECTO FLOTANTE */
-  box-shadow:
-    0 0 25px rgba(212,175,55,0.2),
-    0 0 60px rgba(212,175,55,0.1);
-
-  backdrop-filter: blur(10px);
-
-  display:flex;
-  flex-direction:column;
-  gap:15px;
-
-  animation: fadeUp 1s ease;
+  padding:40px;
+  backdrop-filter:blur(12px);
+  background:rgba(0,0,0,0.7);
+  box-shadow:0 0 40px rgba(212,175,55,0.2);
 }
 
-/* TITULOS */
-.titulo-seccion{
-  font-size:26px;
-  color:white;
-  margin-bottom:5px;
-}
-
-/* TEXTOS */
-.lugar-nombre{
-  font-size:18px;
-  color:#ddd;
-}
-
-.direccion-texto{
-  font-size:16px;
-  color:#bbb;
-}
-
-/* DIVISOR */
-.divider{
-  width:60px;
-  height:2px;
-  background:var(--gold);
-  margin:15px auto;
-  opacity:0.6;
-}
-
-/* BOTÓN SIGUIENTE */
-.btn-next{
-  margin-top:10px;
-}
-
-/* ANIMACIÓN */
-@keyframes fadeUp{
-  from{
-    opacity:0;
-    transform:translateY(30px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-   
-/* =====================================================
-   GALERIA CARRUSEL
-===================================================== */
-.galeria{
-  flex-direction:column;
-  overflow:hidden;
-}
-
-.titulo-galeria{
-  font-family:'Great Vibes';
-  color:var(--gold);
-  font-size:2.5rem;
-  margin-bottom:40px;
-}
-
-.carousel{
-  width:100%;
-  overflow:hidden;
-}
-
+/* ===== GALERIA ===== */
 .track{
   display:flex;
   gap:20px;
-  width:max-content;
   animation:scroll 25s linear infinite;
 }
 
 .track img{
   width:260px;
   height:360px;
-  object-fit:cover;
   border-radius:20px;
-  transition:.4s;
 }
 
-.track img:hover{
-  transform:scale(1.1);
-}
-
-/* ANIMACION */
 @keyframes scroll{
-  0%{transform:translateX(0);}
-  100%{transform:translateX(-50%);}
+  to{transform:translateX(-50%);}
 }
 
-.detalles{
-  flex-direction:column;
-}
-
+/* ===== DETALLES ===== */
 .cards-detalle{
   display:flex;
   flex-wrap:wrap;
+  gap:20px;
   justify-content:center;
-  gap:25px;
-  max-width:900px;
 }
 
 .card-detalle{
   border:1px solid var(--gold);
-  padding:25px;
+  padding:20px;
   border-radius:15px;
   width:250px;
-  background:rgba(255,255,255,0.02);
+  background:rgba(0,0,0,0.6);
 }
 
-/* =====================================================
-   INSTAGRAM
-===================================================== */
+/* ===== INSTAGRAM ===== */
 .instagram{
   background:#0b1a2f;
-  flex-direction:column;
 }
 
-.instagram h2{
-  font-family:'Great Vibes';
-  color:var(--gold);
-  font-size:2.5rem;
-}
-
-.instagram .btn{
-  background:#fff;
-  color:black;
-  border:none;
-}
-
-/* =====================================================
-   BOTON MUSICA
-===================================================== */
+/* ===== MUSIC BTN ===== */
 .music-btn{
   position:fixed;
   top:20px;
   left:20px;
-  background:#111;
-  border:1px solid var(--gold);
-  padding:10px;
-  border-radius:50%;
-  cursor:pointer;
   z-index:1000;
-}
-
-/* =====================================================
-   RESPONSIVE
-===================================================== */
-@media(max-width:768px){
-  .hero h1{font-size:2.2rem;}
-  .intro h1{font-size:2.5rem;}
 }
 
 </style>
@@ -373,211 +214,122 @@ section{
 
 <body>
 
-<!-- =====================================================
-   MUSICA
-===================================================== -->
 <audio id="music" src="music/Photograph.mp3" loop></audio>
 <div class="music-btn" onclick="toggleMusic()">🔊</div>
 
-<!-- =====================================================
-   INTRO
-===================================================== -->
+<!-- INTRO -->
 <section class="intro" id="intro">
-<div class="intro-content">
 <h1>Maria Kamila Tobon</h1>
 <button onclick="abrir()">Abrir Invitación</button>
-</div>
 </section>
 
-<!-- =====================================================
-   CONTENIDO PRINCIPAL
-===================================================== -->
 <div id="contenido" style="display:none">
 
-<!-- PORTADA -->
+<!-- HERO -->
 <section class="hero">
 <img src="images/portada.jpeg">
 <div class="hero-content">
 <h2>Mis 15 años</h2>
 <h1>Maria Kamila Tobon</h1>
-<p>Hoy comienza una nueva etapa llena de sueños e ilusión ✨</p>
-<button class="btn" onclick="siguienteSeccion(this)">  Descubrir <span>↓</span>
-</button>
+<p>Hoy comienza una nueva etapa llena de sueños ✨</p>
+<button class="btn" onclick="siguienteSeccion(this)">Descubrir <span>↓</span></button>
 </div>
 </section>
 
-<!-- FECHA + CONTADOR -->
-<section class="cards">
+<!-- FECHA -->
+<section>
 <div class="card">
 <h2>Fecha del evento</h2>
 <p>02 de Mayo 2026</p>
 <p>7:00 PM</p>
 
-<h3 style="color:gold;margin-top:15px;">Falta</h3>
+<h3 style="color:gold;">Falta</h3>
 
 <div class="countdown">
-<div class="count"><span id="d"></span>días</div>
-<div class="count"><span id="h"></span>hs</div>
-<div class="count"><span id="m"></span>min</div>
-<div class="count"><span id="s"></span>seg</div>
+<div class="count"><span id="d"></span>d</div>
+<div class="count"><span id="h"></span>h</div>
+<div class="count"><span id="m"></span>m</div>
+<div class="count"><span id="s"></span>s</div>
 </div>
-<button class="btn" onclick="siguienteSeccion(this)"> Donde nos vemos <span>↓</span>
+
+<button class="btn" onclick="siguienteSeccion(this)">Siguiente <span>↓</span></button>
 </div>
 </section>
-
 
 <!-- LUGAR -->
 <section class="lugar">
+<div class="card-lugar">
+<h2>Lugar</h2>
+<p>Finca Chinauta El Castillo</p>
 
-  <div class="card-lugar">
+<a class="btn" href="#">Confirmar asistencia</a>
 
-    <h2 class="titulo-seccion">Lugar</h2>
-    <p class="lugar-nombre">Finca Chinauta El Castillo</p>
+<h2>Dirección</h2>
+<p>Km 67 #37-52 Entrada Villa Amparo</p>
 
-    <a class="btn" href="https://wa.me/573114802534?text=Confirmo%20mi%20asistencia%20a%20los%2015%20de%20Maria%20Kamila%20Tobon" target="_blank">
-      Confirmar asistencia
-    </a>
+<a class="btn" href="#">Ver ubicación</a>
+</div>
 
-    <div class="divider"></div>
-
-    <h2 class="titulo-seccion">Dirección</h2>
-    <p class="direccion-texto">
-      Km 67 #37-52 Entrada Villa Amparo
-    </p>
-
-    <a class="btn" href="https://www.google.com/maps" target="_blank">
-      Ver ubicación
-    </a>
-
-  </div>
-
-  <!-- BOTÓN SIGUIENTE -->
-  <button class="btn btn-next" onclick="siguienteSeccion(this)">
-    Ahora mírame bien <span>↓</span>
-  </button>
-
+<button class="btn" onclick="siguienteSeccion(this)">Siguiente <span>↓</span></button>
 </section>
 
 <!-- GALERIA -->
-<section class="galeria">
-<h2 class="titulo-galeria">Un recorrido de vida</h2>
-
-<div class="carousel">
+<section>
 <div class="track">
-
 <img src="images/galeria1.jpg">
 <img src="images/galeria2.jpg">
 <img src="images/galeria3.jpg">
-<img src="images/galeria4.jpg">
-<img src="images/galeria5.jpg">
-<img src="images/galeria6.jpg">
-
 <img src="images/galeria1.jpg">
 <img src="images/galeria2.jpg">
 <img src="images/galeria3.jpg">
-<img src="images/galeria4.jpg">
-<img src="images/galeria5.jpg">
-<img src="images/galeria6.jpg">
-
-</div>
-<button class="btn" onclick="siguienteSeccion(this)"> Y Ahora QUE <span>↓</span>
 </div>
 </section>
 
 <!-- DETALLES -->
-<section class="detalles">
+<section>
+<div class="cards-detalle">
+<div class="card-detalle">🎵 Música</div>
+<div class="card-detalle">👗 Dress Code</div>
+<div class="card-detalle">🎁 Nota</div>
+</div>
 
-  <h2 style="font-family: 'Great Vibes'; color: gold;">
-    Detalles
-  </h2>
-
-  <div class="cards-detalle">
-
-    <div class="card-detalle">
-      <h3>🎵 Música</h3>
-      <p>Una noche inolvidable</p>
-    </div>
-
-    <div class="card-detalle">
-      <h3>👗 Dress Code</h3>
-      <p>Elegante</p>
-    </div>
-
-    <div class="card-detalle">
-      <h3>🎁 Nota</h3>
-      <p>Tu presencia es el mejor regalo</p>
-    </div>
-
-  </div>
-
-  <!-- BOTÓN CORRECTO -->
-  <button class="btn" onclick="siguienteSeccion(this)">
-    Vamos allá <span>↓</span>
-  </button>
-
+<button class="btn" onclick="siguienteSeccion(this)">Siguiente <span>↓</span></button>
 </section>
-   
+
 <!-- INSTAGRAM -->
 <section class="instagram">
 <h2>#15Kamila</h2>
-<p>Comparte tus fotos del evento</p>
-
-<a class="btn" href="#" target="_blank">
-Ver en Instagram
-</a>
+<a class="btn" href="#">Ver en Instagram</a>
 </section>
 
 </div>
 
 <script>
-
-/* ===== INTRO ===== */
 function abrir(){
-document.getElementById("intro").style.display="none";
-document.getElementById("contenido").style.display="block";
-document.body.style.overflow="auto";
-document.getElementById("music").play();
+  intro.style.display="none";
+  contenido.style.display="block";
+  document.body.style.overflow="auto";
+  music.play();
 }
 
-/* ===== SCROLL ===== */
-function scrollNext(){
-window.scrollBy({top: window.innerHeight, behavior:'smooth'});
-}
-
-/* ===== COUNTDOWN ===== */
-const fecha = new Date("2026-05-02T19:00:00");
-
-setInterval(()=>{
-let diff = fecha - new Date();
-
-document.getElementById("d").innerText = Math.floor(diff/(1000*60*60*24));
-document.getElementById("h").innerText = Math.floor(diff/(1000*60*60)%24);
-document.getElementById("m").innerText = Math.floor(diff/(1000*60)%60);
-document.getElementById("s").innerText = Math.floor(diff/1000%60);
-},1000);
-
-/* ===== MUSICA ===== */
 function toggleMusic(){
-let m = document.getElementById("music");
-m.paused ? m.play() : m.pause();
+  music.paused ? music.play() : music.pause();
 }
 
+function siguienteSeccion(btn){
+  const next = btn.closest("section").nextElementSibling;
+  if(next) next.scrollIntoView({behavior:"smooth"});
+}
+
+const fecha = new Date("2026-05-02T19:00:00");
+setInterval(()=>{
+let d = fecha - new Date();
+document.getElementById("d").innerText=Math.floor(d/86400000);
+document.getElementById("h").innerText=Math.floor(d/3600000)%24;
+document.getElementById("m").innerText=Math.floor(d/60000)%60;
+document.getElementById("s").innerText=Math.floor(d/1000)%60;
+},1000);
 </script>
 
 </body>
-
-<script>
-
-/* ===== IR A SIGUIENTE SECCION ===== */
-function siguienteSeccion(btn){
-  const section = btn.closest("section"); // sección actual
-  const next = section.nextElementSibling; // siguiente sección
-  
-  if(next){
-    next.scrollIntoView({behavior:"smooth"});
-  }
-}
-
-</script>
-   
 </html>
