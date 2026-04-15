@@ -154,7 +154,6 @@ section{
 }
    
 /* BOTONES GENERALES */
-/* ===== BOTON ELEGANTE CON FLECHA ===== */
 .btn{
   margin-top:25px;
   padding:14px 40px;
@@ -191,140 +190,125 @@ section{
   100%{transform:translateY(0);}
 }
 
-/* ========================================= */
-/* 💎 SECCIÓN FECHA + PADRES */
-/* ========================================= */
+/* =========================================
+   SECCIÓN FECHA + PADRES (VERSIÓN PREMIUM)
+========================================= */
 
 .fecha-section{
   flex-direction:column;
-  gap:40px;
+  gap:60px;
 }
 
-/* CONTENEDOR */
+/* CONTENEDOR PRINCIPAL */
 .contenedor-fecha{
   display:flex;
-  gap:40px;
   justify-content:center;
   align-items:stretch;
-  flex-wrap:nowrap; /* 👈 CLAVE: evita que bajen */
-}
-
-/* Responsive solo en móvil */
-@media(max-width:768px){
-  .contenedor-fecha{
-    flex-direction:column;
-    flex-wrap:wrap;
-  }
+  gap:60px;
+  flex-wrap:nowrap;
 }
 
 /* TARJETAS */
 .card{
-  width:420px;              /* 👈 MÁS GRANDE */
-  min-height:320px;         /* 👈 más aire vertical */
-  padding:40px 30px;        /* 👈 más espacio interno */
+  width:420px;
+  min-height:340px;
+  padding:45px 35px;
   border-radius:25px;
   border:1px solid var(--gold);
   background:rgba(0,0,0,0.85);
-  box-shadow:0 0 25px rgba(212,175,55,0.4);
+
   display:flex;
   flex-direction:column;
   justify-content:center;
-}
+  text-align:center;
 
- .titulo-card{
-  font-family:'Great Vibes', cursive;
-  font-size:32px;   /* 👈 más elegante */
-  margin-bottom:20px;
-}  
-
-.padre{
-  font-family:'Great Vibes', cursive;
-  font-size:26px;   /* 👈 más protagonistas */
-  color:var(--gold);
-}
-
-.sub{
-  font-size:15px;
-  opacity:0.7;
-}   
-   
-.titulo-card{
-  font-family:'Great Vibes', cursive;
-  font-size:26px;
-  color:var(--gold);
-}
-
-.card{
-  width:350px; /* 👈 un poco más grande */
-}
-
-.fecha{
-  font-size:20px;
-  margin-bottom:10px;
-}
-
-.contenedor-fecha{
-  gap:60px; /* 👈 más separación elegante */
-}
-   
-/* HOVER SUAVE */
-.card:hover{
-  transform:translateY(-5px);
+  /* efecto lujo */
   box-shadow:
-    0 0 30px rgba(212,175,55,0.4);
+    0 0 20px rgba(212,175,55,0.25),
+    0 0 60px rgba(212,175,55,0.15);
+    
+  transition:all 0.4s ease;
+}
+
+/* HOVER ELEGANTE */
+.card:hover{
+  transform:translateY(-8px) scale(1.02);
+  box-shadow:
+    0 0 35px rgba(212,175,55,0.5),
+    0 0 80px rgba(212,175,55,0.25);
 }
 
 /* TITULOS */
 .titulo-card{
-  font-size:20px;
-  margin-bottom:15px;
-  color:white;
+  font-family:'Great Vibes', cursive;
+  font-size:34px;
+  color:var(--gold);
+  margin-bottom:25px;
 }
 
-/* PADRES */
+/* NOMBRES PADRES */
 .padre{
-  font-family:'Playfair Display';
-  font-size:18px;
+  font-family:'Great Vibes', cursive;
+  font-size:28px;
+  color:var(--gold);
+  margin-top:10px;
 }
 
+/* ROL */
 .rol{
-  font-size:13px;
+  font-size:14px;
   color:#bbb;
+  margin-bottom:10px;
 }
 
-/* LINEA */
+/* LINEA DECORATIVA */
 .linea{
-  width:50px;
+  width:60px;
   height:2px;
   background:var(--gold);
-  margin:15px auto;
+  margin:18px auto;
+  opacity:0.8;
 }
 
 /* FECHA */
 .fecha-texto{
-  font-size:18px;
+  font-size:20px;
+  margin-bottom:5px;
 }
 
 .hora-texto{
-  margin-bottom:10px;
+  font-size:16px;
   color:#ddd;
+  margin-bottom:15px;
+}
+
+/* TEXTO FALTA */
+.falta{
+  font-family:'Great Vibes', cursive;
+  font-size:26px;
+  color:var(--gold);
+  margin-bottom:15px;
 }
 
 /* CONTADOR */
 .contador{
   display:flex;
   justify-content:center;
-  gap:15px;
-  margin-top:20px;
+  gap:18px;
+  margin-top:15px;
   flex-wrap:wrap;
 }
 
 .contador div{
   border:1px solid var(--gold);
-  padding:15px;
+  padding:15px 12px;
   border-radius:12px;
-  min-width:70px;
+  min-width:75px;
   font-size:18px;
+
+  background:rgba(255,255,255,0.03);
+
+  box-shadow:0 0 10px rgba(212,175,55,0.2);
 }
 
 /* RESPONSIVE */
@@ -333,9 +317,11 @@ section{
     flex-direction:column;
     align-items:center;
   }
+
+  .card{
+    width:90%;
+  }
 }
-
-
    
 /* =====================================================
    TARJETAS GENERALES
