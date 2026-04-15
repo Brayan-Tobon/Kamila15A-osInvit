@@ -79,81 +79,83 @@ section{
 }
 
 /* =====================================================
-   HERO (PORTADA)
+   HERO (PORTADA) — VERSION OPTIMIZADA
 ===================================================== */
-.hero{position:relative;}
 
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
+  overflow:hidden;
+}
+
+/* IMAGEN */
 .hero img{
   position:absolute;
   width:100%;
   height:100%;
   object-fit:cover;
+  object-position:center; /* 👈 asegura buen encuadre */
   z-index:0;
 }
 
+/* OVERLAY OSCURO */
 .hero::before{
   content:"";
   position:absolute;
   inset:0;
   background:linear-gradient(
     to bottom,
-    rgba(0,0,0,0.4) 0%,
-    rgba(0,0,0,0.2) 40%,
-    rgba(0,0,0,0.5) 100%
+    rgba(0,0,0,0.5) 0%,
+    rgba(0,0,0,0.3) 40%,
+    rgba(0,0,0,0.6) 100%
   );
+  z-index:1;
 }
 
+/* CONTENIDO */
 .hero-content{
   position:relative;
   z-index:2;
-  max-width:600px;
+  max-width:650px;
+  padding:20px;
 }
 
-.nombre{
-  letter-spacing:2px;
-}   
-.nombre{
-  font-family:'Great Vibes';
-  font-size:5rem;
-  white-space:nowrap; /* 🔥 evita que se divida */
-  
-  text-shadow:
-    0 0 10px rgba(0,0,0,0.8),
-    0 0 25px rgba(212,175,55,0.6);
-}
-   
-.hero h1{
-  font-family:'Great Vibes';
-  font-size:5rem;
-  color:#fff;
-
-  text-shadow:
-    0 0 10px rgba(0,0,0,0.8),
-    0 0 25px rgba(212,175,55,0.6);
-
-  line-height:1.1;
-}
-
-@media(max-width:768px){
-  .nombre{
-    font-size:3rem;
-    white-space:normal; /* 👈 aquí sí permitimos salto */
-  }
-}
-
+/* MIS 15 */
 .hero h2{
-  margin-bottom:20px;
   font-size:14px;
   letter-spacing:3px;
   text-transform:uppercase;
   color:#ddd;
+  margin-bottom:15px;
 }
 
+/* NOMBRE PRINCIPAL */
 .nombre{
-  margin-top:10px;
+  font-family:'Great Vibes';
+  font-size:5rem;
+  line-height:1.1;
+  color:#fff;
+  margin:10px 0;
+
+  text-shadow:
+    0 0 10px rgba(0,0,0,0.8),
+    0 0 25px rgba(212,175,55,0.6);
 }
-   
-/* BOTONES GENERALES */
+
+/* FRASE */
+.hero p{
+  font-size:15px;
+  color:#eee;
+  margin:15px 0 10px;
+  line-height:1.5;
+}
+
+/* BOTÓN */
 .btn{
   margin-top:25px;
   padding:14px 40px;
@@ -169,25 +171,60 @@ section{
   transition:0.3s;
 }
 
-/* efecto hover */
+/* HOVER */
 .btn:hover{
   background:var(--gold);
   color:black;
   box-shadow:0 0 20px var(--gold);
 }
 
-/* contenedor flecha */
+/* FLECHA */
 .btn span{
   display:inline-block;
   margin-left:8px;
   animation:flechaBajar 1.2s infinite;
 }
 
-/* animación */
+/* ANIMACIÓN */
 @keyframes flechaBajar{
   0%{transform:translateY(0);}
   50%{transform:translateY(6px);}
   100%{transform:translateY(0);}
+}
+
+/* =========================
+   MOBILE PERFECTO
+========================= */
+@media(max-width:768px){
+
+  .hero{
+    padding:40px 20px;
+  }
+
+  .hero-content{
+    max-width:100%;
+  }
+
+  .nombre{
+    font-size:2.8rem; /* 👈 tamaño ideal móvil */
+    line-height:1.2;
+    white-space:normal; /* 👈 permite dividir */
+  }
+
+  .hero h2{
+    font-size:12px;
+    letter-spacing:2px;
+  }
+
+  .hero p{
+    font-size:14px;
+  }
+
+  .btn{
+    padding:12px 30px;
+    font-size:13px;
+  }
+
 }
 
 /* =========================================
@@ -195,6 +232,7 @@ section{
 ========================================= */
 
 .fecha-section{
+  display:flex;
   flex-direction:column;
   gap:60px;
 }
@@ -205,13 +243,13 @@ section{
   justify-content:center;
   align-items:stretch;
   gap:60px;
-  flex-wrap:wrap; /* 👈 permite acomodarse mejor */
+  flex-wrap:wrap;
 }
 
 /* TARJETAS */
 .card{
-  width:420px;
-  min-height:340px;
+  width:440px;
+  min-height:360px;
   padding:45px 35px;
   border-radius:25px;
   border:1px solid var(--gold);
@@ -222,15 +260,14 @@ section{
   justify-content:center;
   text-align:center;
 
-  /* efecto lujo */
   box-shadow:
     0 0 20px rgba(212,175,55,0.25),
     0 0 60px rgba(212,175,55,0.15);
-    
+
   transition:all 0.4s ease;
 }
 
-/* HOVER ELEGANTE */
+/* HOVER */
 .card:hover{
   transform:translateY(-8px) scale(1.02);
   box-shadow:
@@ -246,7 +283,7 @@ section{
   margin-bottom:25px;
 }
 
-/* NOMBRES PADRES */
+/* NOMBRES */
 .padre{
   font-family:'Great Vibes', cursive;
   font-size:28px;
@@ -261,7 +298,7 @@ section{
   margin-bottom:10px;
 }
 
-/* LINEA DECORATIVA */
+/* LINEA */
 .linea{
   width:60px;
   height:2px;
@@ -282,7 +319,7 @@ section{
   margin-bottom:15px;
 }
 
-/* TEXTO FALTA */
+/* FALTA */
 .falta{
   font-family:'Great Vibes', cursive;
   font-size:26px;
@@ -290,10 +327,10 @@ section{
   margin-bottom:15px;
 }
 
-/* CONTADOR */
+/* CONTADOR DESKTOP */
 .contador{
-  display:grid; /* 👈 mejor que flex aquí */
-  grid-template-columns: repeat(4, 1fr); /* 4 en línea */
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
   gap:12px;
   margin-top:20px;
   justify-items:center;
@@ -305,32 +342,30 @@ section{
   border-radius:10px;
   font-size:15px;
   min-width:60px;
+  background:rgba(255,255,255,0.03);
 }
 
-/* RESPONSIVE */
+/* =========================
+   RESPONSIVE (MOBILE)
+========================= */
 @media(max-width:768px){
+
   .contenedor-fecha{
     flex-direction:column;
     align-items:center;
+    gap:40px;
   }
-
-  .card{
-    width:90%;       /* 👈 ocupa casi toda la pantalla */
-    max-width:420px; /* 👈 no se deforma */
-  }
-}
-
-@media(max-width:768px){
-  .contador{
-    grid-template-columns: repeat(2, 1fr); /* 👈 2x2 limpio */
-  }
-}
 
   .card{
     width:90%;
+    max-width:420px;
   }
+
+  .contador{
+    grid-template-columns: repeat(2, 1fr); /* 2x2 limpio */
+  }
+
 }
-   
 /* =====================================================
    TARJETAS GENERALES
 ===================================================== */
