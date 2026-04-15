@@ -415,73 +415,121 @@ section{
   min-width:65px;
 }
 
-/* 📍 SECCIÓN LUGAR PREMIUM */
-/* ========================================= */
+/* =========================================
+   SECCIÓN LUGAR 
+========================================= */
 
 .lugar{
+  display:flex;
   flex-direction:column;
-  gap:40px;
-  position:relative;
+  align-items:center;
+  gap:30px;
+  padding:60px 20px;
 }
 
 /* TARJETA PRINCIPAL */
 .card-lugar{
-  background: rgba(0,0,0,0.65);
-  border:1px solid var(--gold);
-  border-radius:25px;
-  padding:40px 30px;
-  max-width:500px;
-  width:90%;
+  width:420px;
+  padding:45px 35px;
+  border-radius:28px;
+  border:1px solid rgba(212,175,55,0.6);
 
-  /* EFECTO FLOTANTE */
+  background:linear-gradient(
+    145deg,
+    rgba(0,0,0,0.9),
+    rgba(20,20,20,0.85)
+  );
+
+  backdrop-filter: blur(8px);
+  text-align:center;
+
   box-shadow:
-    0 0 25px rgba(212,175,55,0.2),
-    0 0 60px rgba(212,175,55,0.1);
+    0 10px 40px rgba(0,0,0,0.8),
+    0 0 25px rgba(212,175,55,0.25),
+    inset 0 0 15px rgba(212,175,55,0.05);
 
-  backdrop-filter: blur(10px);
+  transition:all 0.4s ease;
 
-  display:flex;
-  flex-direction:column;
-  gap:15px;
+  /* ANIMACIONES */
+  animation:
+    fadeUp 1s ease,
+    glowSoft 4s ease-in-out infinite;
+}
 
-  animation: fadeUp 1s ease;
+/* HOVER */
+.card-lugar:hover{
+  transform:translateY(-6px) scale(1.01);
+  box-shadow:
+    0 0 40px rgba(212,175,55,0.45),
+    0 0 90px rgba(212,175,55,0.25);
 }
 
 /* TITULOS */
 .titulo-seccion{
-  font-size:26px;
-  color:white;
-  margin-bottom:5px;
+  font-family:'Great Vibes', cursive;
+  font-size:36px;
+  color:var(--gold);
+  margin-bottom:15px;
+  text-shadow:0 0 10px rgba(212,175,55,0.4);
 }
 
-/* TEXTOS */
+/* TEXTO PRINCIPAL */
 .lugar-nombre{
-  font-size:18px;
-  color:#ddd;
+  font-size:21px;
+  margin-bottom:25px;
+  color:white;
+  letter-spacing:0.5px;
 }
 
+/* DIRECCIÓN */
 .direccion-texto{
   font-size:16px;
-  color:#bbb;
+  color:#ccc;
+  margin-bottom:25px;
 }
 
 /* DIVISOR */
 .divider{
-  width:60px;
+  width:80px;
   height:2px;
-  background:var(--gold);
+  background:linear-gradient(
+    90deg,
+    transparent,
+    var(--gold),
+    transparent
+  );
+  margin:30px auto;
+  opacity:0.9;
+}
+
+/* BOTONES */
+.card-lugar .btn{
+  width:100%;
+  max-width:260px;
   margin:15px auto;
-  opacity:0.6;
+  display:inline-block;
+
+  border:1px solid var(--gold);
+  background:transparent;
+
+  transition:all 0.3s ease;
+}
+
+.card-lugar .btn:hover{
+  background:var(--gold);
+  color:black;
+  box-shadow:0 0 15px var(--gold);
 }
 
 /* BOTÓN SIGUIENTE */
 .btn-next{
   margin-top:10px;
 }
-.btn{
-  backdrop-filter:blur(6px);
-}
-/* ANIMACIÓN */
+
+/* =========================
+   ANIMACIONES
+========================= */
+
 @keyframes fadeUp{
   from{
     opacity:0;
@@ -491,6 +539,39 @@ section{
     opacity:1;
     transform:translateY(0);
   }
+}
+
+@keyframes glowSoft{
+  0%{ box-shadow: 0 0 25px rgba(212,175,55,0.2); }
+  50%{ box-shadow: 0 0 35px rgba(212,175,55,0.35); }
+  100%{ box-shadow: 0 0 25px rgba(212,175,55,0.2); }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+  .card-lugar{
+    width:100%;
+    max-width:340px;
+    padding:25px 18px;
+    border-radius:22px;
+  }
+
+  .titulo-seccion{
+    font-size:28px;
+  }
+
+  .lugar-nombre{
+    font-size:17px;
+  }
+
+  .direccion-texto{
+    font-size:14px;
+  }
+
 }
    
 /* =====================================================
@@ -671,7 +752,7 @@ donde los sueños comienzan a hacerse realidad
       <h3 class="titulo-card">Fecha del evento</h3>
       <p class="fecha-texto">02 de Mayo 2026</p>
       <p class="hora-texto">7:00 PM</p>
-      <h4 class="faltan">Falta</h4>
+      <h4 class="faltan">Faltan</h4>
       <div class="countdown">
         <div class="count"><span id="d"></span><small>días</small></div>
         <div class="count"><span id="h"></span><small>hs</small></div>
@@ -680,7 +761,6 @@ donde los sueños comienzan a hacerse realidad
       </div>
     </div>
   </div>
-
   <!-- BOTÓN -->
   <button class="btn" onclick="siguienteSeccion(this)">
     Donde nos vemos <span>↓</span>
@@ -689,36 +769,28 @@ donde los sueños comienzan a hacerse realidad
 
 <!-- LUGAR -->
 <section class="lugar">
-
   <div class="card-lugar">
-
     <h2 class="titulo-seccion">Lugar</h2>
     <p class="lugar-nombre">Finca Chinauta El Castillo</p>
-
     <a class="btn" href="https://wa.me/573114802534?text=Confirmo%20mi%20asistencia%20a%20los%2015%20de%20Maria%20Kamila%20Tobon" target="_blank">
       Confirmar asistencia
     </a>
-
     <div class="divider"></div>
-
     <h2 class="titulo-seccion">Dirección</h2>
     <p class="direccion-texto">
       Km 67 #37-52 Entrada Villa Amparo
     </p>
-
     <a class="btn" href="https://www.google.com/maps" target="_blank">
       Ver ubicación
     </a>
-
   </div>
 
   <!-- BOTÓN SIGUIENTE -->
   <button class="btn btn-next" onclick="siguienteSeccion(this)">
     Ahora mírame bien <span>↓</span>
   </button>
-
 </section>
-
+   
 <!-- GALERIA -->
 <section class="galeria">
 <h2 class="titulo-galeria">Un recorrido de vida</h2>
