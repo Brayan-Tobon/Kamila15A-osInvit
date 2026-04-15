@@ -224,16 +224,6 @@ section{
   background:rgba(255,255,255,0.02);
 }
 
-/* ===== IR A SIGUIENTE SECCION ===== */
-function siguienteSeccion(btn){
-  const section = btn.closest("section"); // sección actual
-  const next = section.nextElementSibling; // siguiente sección
-  
-  if(next){
-    next.scrollIntoView({behavior:"smooth"});
-  }
-}
- 
 /* =====================================================
    INSTAGRAM
 ===================================================== */
@@ -453,4 +443,19 @@ m.paused ? m.play() : m.pause();
 </script>
 
 </body>
+
+<script>
+
+/* ===== IR A SIGUIENTE SECCION ===== */
+function siguienteSeccion(btn){
+  const section = btn.closest("section"); // sección actual
+  const next = section.nextElementSibling; // siguiente sección
+  
+  if(next){
+    next.scrollIntoView({behavior:"smooth"});
+  }
+}
+
+</script>
+   
 </html>
