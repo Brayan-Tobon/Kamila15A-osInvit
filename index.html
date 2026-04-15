@@ -54,7 +54,7 @@ text-align:center;
 }
 
 .intro h1{
-font-family:'Great Vibes',cursive;
+font-family:'Great Vibes';
 font-size:3.5rem;
 text-shadow:0 0 25px rgba(212,175,55,0.8);
 }
@@ -97,7 +97,7 @@ object-position:center top;
 content:"";
 position:absolute;
 inset:0;
-background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.7));
+background:rgba(0,0,0,0.6);
 }
 
 .hero-content{
@@ -105,35 +105,11 @@ position:relative;
 z-index:2;
 text-align:center;
 max-width:600px;
-padding:20px;
-}
-
-.hero h2{
-letter-spacing:3px;
-font-weight:300;
-margin-bottom:10px;
 }
 
 .hero h1{
 font-family:'Great Vibes';
-font-size:3.2rem;
-text-shadow:0 0 20px rgba(212,175,55,0.6);
-}
-
-.hero p{
-margin-top:15px;
-line-height:1.6;
-opacity:0.9;
-}
-
-.hero .btn{
-margin-top:25px;
-padding:12px 30px;
-border:1px solid var(--gold);
-border-radius:30px;
-background:transparent;
-color:white;
-cursor:pointer;
+font-size:3rem;
 }
 
 /* ================= FECHA ================= */
@@ -145,88 +121,91 @@ flex-direction:column;
 align-items:center;
 justify-content:center;
 text-align:center;
-position:relative;
-overflow:hidden;
 }
 
-/* estrellas */
-.fecha::before{
+/* ================= LUGAR ================= */
+
+.lugar{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:40px 20px;
+background:#050505;
+position:relative;
+}
+
+/* fondo estrellas */
+.lugar::before{
 content:"";
 position:absolute;
 inset:0;
 background-image:radial-gradient(var(--gold) 1px, transparent 1px);
-background-size:50px 50px;
-opacity:0.08;
+background-size:60px 60px;
+opacity:0.05;
 }
 
-/* decoración líneas */
-.decor-line{
-width:100px;
+/* título */
+.lugar h2{
+font-family:'Playfair Display';
+font-size:2.2rem;
+margin-bottom:15px;
+}
+
+/* nombre lugar */
+.lugar .nombre{
+font-size:1.2rem;
+margin-bottom:25px;
+opacity:0.9;
+}
+
+/* dirección */
+.lugar .direccion{
+font-size:1rem;
+opacity:0.7;
+margin-bottom:25px;
+}
+
+/* botones */
+.btn{
+padding:12px 28px;
+border-radius:30px;
+border:1px solid var(--gold);
+background:transparent;
+color:white;
+cursor:pointer;
+margin:10px;
+transition:.3s;
+display:inline-block;
+text-decoration:none;
+}
+
+.btn:hover{
+background:var(--gold);
+color:black;
+}
+
+/* línea decorativa */
+.decor{
+width:80px;
 height:1px;
 background:var(--gold);
-margin:20px auto;
+margin:25px auto;
 position:relative;
 }
 
-.decor-line::after{
+.decor::after{
 content:"";
-position:absolute;
-left:50%;
-top:-4px;
-width:8px;
-height:8px;
+width:6px;
+height:6px;
 background:var(--gold);
 border-radius:50%;
+position:absolute;
+left:50%;
+top:-3px;
 transform:translateX(-50%);
-}
-
-/* tarjeta */
-.fecha-box{
-border:1px solid var(--gold);
-padding:35px 50px;
-border-radius:15px;
-margin-bottom:40px;
-background:rgba(255,255,255,0.02);
-box-shadow:0 0 30px rgba(212,175,55,0.1);
-}
-
-.fecha h2{
-font-family:'Playfair Display';
-font-size:2.2rem;
-margin-bottom:10px;
-}
-
-/* ================= COUNTDOWN ================= */
-
-.countdown-title{
-font-family:'Great Vibes';
-font-size:2.5rem;
-color:var(--gold);
-margin-bottom:20px;
-}
-
-.countdown{
-display:flex;
-gap:15px;
-flex-wrap:wrap;
-justify-content:center;
-}
-
-.count-box{
-border:1px solid var(--gold);
-padding:15px 20px;
-min-width:80px;
-border-radius:10px;
-background:rgba(255,255,255,0.02);
-}
-
-.count-box span{
-font-size:1.8rem;
-display:block;
-}
-
-.count-box small{
-opacity:0.7;
 }
 
 /* ================= RESPONSIVE ================= */
@@ -256,39 +235,33 @@ opacity:0.7;
 <img src="images/portada.jpeg" class="hero-img">
 
 <div class="hero-content">
-<h2>Mis 15 años</h2>
 <h1>Maria Kamila Tobon</h1>
-
-<p>
-Hoy comienza una nueva etapa llena de sueños,
-ilusión y momentos inolvidables.
-</p>
-
-<button class="btn" onclick="scrollNext()">Descubrir</button>
+<p>Mis 15 años</p>
 </div>
 </section>
 
-<!-- FECHA -->
-<section class="fecha">
+<!-- LUGAR -->
+<section class="lugar">
 
-<div class="decor-line"></div>
+<div class="decor"></div>
 
-<div class="fecha-box">
-<h2>Fecha del evento</h2>
-<p>02 de Mayo 2026</p>
-<p>7:00 PM</p>
-</div>
+<h2>Lugar</h2>
+<p class="nombre">Finca: Chinauta El Castillo</p>
 
-<div class="decor-line"></div>
+<a class="btn" href="https://forms.gle/TU_LINK_AQUI" target="_blank">
+Confirmar asistencia
+</a>
 
-<h2 class="countdown-title">Falta</h2>
+<div class="decor"></div>
 
-<div class="countdown">
-<div class="count-box"><span id="d">0</span><small>días</small></div>
-<div class="count-box"><span id="h">0</span><small>hs</small></div>
-<div class="count-box"><span id="m">0</span><small>min</small></div>
-<div class="count-box"><span id="s">0</span><small>seg</small></div>
-</div>
+<h2>Dirección</h2>
+<p class="direccion">
+Km 67 #37-52, Entrada Villa Amparo
+</p>
+
+<a class="btn" href="https://www.google.com/maps?q=Chinauta+El+Castillo" target="_blank">
+Ver ubicación
+</a>
 
 </section>
 
@@ -301,32 +274,6 @@ document.getElementById("intro").style.display="none";
 document.getElementById("contenido").style.display="block";
 document.body.style.overflow="auto";
 }
-
-function scrollNext(){
-window.scrollBy({
-top: window.innerHeight,
-behavior: 'smooth'
-});
-}
-
-/* countdown */
-const fecha = new Date("2026-05-02T19:00:00");
-
-setInterval(()=>{
-let ahora = new Date();
-let diff = fecha - ahora;
-
-let d = Math.floor(diff / (1000*60*60*24));
-let h = Math.floor(diff / (1000*60*60) % 24);
-let m = Math.floor(diff / (1000*60) % 60);
-let s = Math.floor(diff / 1000 % 60);
-
-document.getElementById("d").innerText = d;
-document.getElementById("h").innerText = h;
-document.getElementById("m").innerText = m;
-document.getElementById("s").innerText = s;
-
-},1000);
 
 </script>
 
