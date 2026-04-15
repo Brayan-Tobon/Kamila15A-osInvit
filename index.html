@@ -106,8 +106,17 @@ section{
 
 .hero h1{
   font-family:'Great Vibes';
-  font-size:3rem;
-  text-shadow:0 0 20px gold;
+  font-size:5rem;
+  background: linear-gradient(90deg, #fff, #d4af37, #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:0 0 25px rgba(212,175,55,0.5);
+}
+
+@media(max-width:768px){
+  .hero h1{
+    font-size:3rem;
+  }
 }
 
 /* BOTONES GENERALES */
