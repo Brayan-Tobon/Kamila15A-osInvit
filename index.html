@@ -14,6 +14,7 @@
 :root{ --gold:#d4af37; }
 
 *{margin:0;padding:0;box-sizing:border-box;}
+
 html{scroll-behavior:smooth;}
 
 body{
@@ -52,13 +53,12 @@ background:rgba(0,0,0,0.6);
 .intro-content{
 position:relative;
 z-index:2;
-text-align:center;
 }
 
 .intro h1{
 font-family:'Great Vibes';
 font-size:3.5rem;
-text-shadow:0 0 20px gold;
+text-shadow:0 0 25px gold;
 }
 
 .intro button{
@@ -81,13 +81,14 @@ position:absolute;
 width:100%;
 height:100%;
 object-fit:cover;
+object-position:center center; /* 🔥 FIX IMPORTANTE */
 }
 
 .hero::before{
 content:"";
 position:absolute;
 inset:0;
-background:rgba(0,0,0,0.6);
+background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.7));
 }
 
 .hero-content{
@@ -104,66 +105,24 @@ letter-spacing:3px;
 font-family:'Great Vibes';
 font-size:3rem;
 margin:10px 0;
+text-shadow:0 0 20px rgba(212,175,55,0.6);
 }
 
 .hero p{
 opacity:0.9;
 }
 
-/* ===== FECHA ===== */
-.fecha::before{
-content:"";
-position:absolute;
-inset:0;
-background-image:radial-gradient(var(--gold) 1px, transparent 1px);
-background-size:50px 50px;
-opacity:0.05;
-}
-
-.fecha-box{
-border:1px solid var(--gold);
-padding:30px 40px;
-border-radius:15px;
-margin-bottom:30px;
-}
-
-/* countdown */
-.countdown{
-display:flex;
-gap:15px;
-justify-content:center;
-flex-wrap:wrap;
-}
-
-.count-box{
-border:1px solid var(--gold);
-padding:15px;
-border-radius:10px;
-min-width:70px;
-}
-
-/* ===== LUGAR ===== */
-.lugar{
-background:#050505;
-}
-
-.lugar::before{
-content:"";
-position:absolute;
-inset:0;
-background-image:radial-gradient(var(--gold) 1px, transparent 1px);
-background-size:60px 60px;
-opacity:0.05;
-}
-
 .btn{
-display:inline-block;
-margin-top:15px;
-padding:12px 25px;
+margin-top:20px;
+padding:12px 28px;
 border-radius:30px;
 border:1px solid var(--gold);
+background:transparent;
 color:white;
+cursor:pointer;
 text-decoration:none;
+display:inline-block;
+transition:.3s;
 }
 
 .btn:hover{
@@ -171,11 +130,64 @@ background:var(--gold);
 color:black;
 }
 
-.decor{
-width:80px;
-height:1px;
-background:var(--gold);
-margin:20px auto;
+/* ===== TARJETAS ===== */
+.cards{
+flex-direction:column;
+gap:30px;
+}
+
+.card{
+border:1px solid var(--gold);
+padding:30px;
+border-radius:15px;
+max-width:400px;
+width:100%;
+background:rgba(255,255,255,0.02);
+box-shadow:0 0 30px rgba(212,175,55,0.08);
+animation:fadeUp 1s ease;
+}
+
+.card h2{
+font-family:'Playfair Display';
+margin-bottom:10px;
+}
+
+/* ===== COUNTDOWN ===== */
+.countdown{
+display:flex;
+justify-content:center;
+gap:10px;
+margin-top:15px;
+flex-wrap:wrap;
+}
+
+.count{
+border:1px solid var(--gold);
+padding:10px;
+border-radius:8px;
+min-width:65px;
+}
+
+.count span{
+font-size:1.4rem;
+display:block;
+}
+
+/* ===== LUGAR ===== */
+.lugar .btn{
+margin-top:10px;
+}
+
+/* ===== ANIMACIÓN ===== */
+@keyframes fadeUp{
+from{opacity:0; transform:translateY(40px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+.hero h1{font-size:2.3rem;}
+.intro h1{font-size:2.5rem;}
 }
 
 </style>
@@ -183,7 +195,7 @@ margin:20px auto;
 
 <body>
 
-<!-- INTRO -->
+<!-- ================= INTRO ================= -->
 <section class="intro" id="intro">
 <div class="intro-content">
 <h1>Maria Kamila Tobon</h1>
@@ -193,42 +205,47 @@ margin:20px auto;
 
 <div id="contenido" style="display:none">
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 <section class="hero">
 <img src="images/portada.jpeg">
+
 <div class="hero-content">
 <h2>Mis 15 años</h2>
 <h1>Maria Kamila Tobon</h1>
-<p>Hoy comienza una nueva etapa llena de sueños, ilusión y momentos inolvidables.</p>
+
+<p>
+Hoy comienza una nueva etapa llena de sueños, ilusión y momentos inolvidables.
+</p>
+
+<button class="btn" onclick="scrollNext()">Descubrir</button>
 </div>
 </section>
 
-<!-- FECHA -->
-<section class="fecha">
+<!-- ================= FECHA + COUNTDOWN ================= -->
+<section class="cards">
 
-<div class="fecha-box">
+<div class="card">
 <h2>Fecha del evento</h2>
 <p>02 de Mayo 2026</p>
 <p>7:00 PM</p>
-</div>
 
-<h2 style="color:gold;">Falta</h2>
+<h2 style="color:gold;margin-top:15px;">Falta</h2>
 
 <div class="countdown">
-<div class="count-box"><span id="d">0</span><br>días</div>
-<div class="count-box"><span id="h">0</span><br>hs</div>
-<div class="count-box"><span id="m">0</span><br>min</div>
-<div class="count-box"><span id="s">0</span><br>seg</div>
+<div class="count"><span id="d">0</span>días</div>
+<div class="count"><span id="h">0</span>hs</div>
+<div class="count"><span id="m">0</span>min</div>
+<div class="count"><span id="s">0</span>seg</div>
+</div>
+
 </div>
 
 </section>
 
-<!-- LUGAR -->
-<section class="lugar">
+<!-- ================= LUGAR ================= -->
+<section class="cards lugar">
 
-<div>
-<div class="decor"></div>
-
+<div class="card">
 <h2>Lugar</h2>
 <p>Finca Chinauta El Castillo</p>
 
@@ -236,9 +253,7 @@ margin:20px auto;
 Confirmar asistencia
 </a>
 
-<div class="decor"></div>
-
-<h2>Dirección</h2>
+<h2 style="margin-top:20px;">Dirección</h2>
 <p>Km 67 #37-52 Entrada Villa Amparo</p>
 
 <a class="btn" href="https://www.google.com/maps?q=Chinauta+El+Castillo" target="_blank">
@@ -249,14 +264,25 @@ Ver ubicación
 
 </section>
 
+<!-- ================= ESPACIO GALERÍA (SIGUIENTE) ================= -->
+<section>
+<h2 style="opacity:0.3">Próxima sección: Galería</h2>
+</section>
+
 </div>
 
 <script>
 
+/* intro */
 function abrir(){
 document.getElementById("intro").style.display="none";
 document.getElementById("contenido").style.display="block";
 document.body.style.overflow="auto";
+}
+
+/* scroll */
+function scrollNext(){
+window.scrollBy({top: window.innerHeight, behavior:'smooth'});
 }
 
 /* countdown */
