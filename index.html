@@ -14,7 +14,6 @@
 :root{
 --gold:#d4af37;
 --white:#fff;
---soft:#1a1a1a;
 }
 
 /* ===== RESET ===== */
@@ -60,11 +59,6 @@ font-size:3.5rem;
 text-shadow:0 0 25px rgba(212,175,55,0.8);
 }
 
-.intro p{
-margin-top:10px;
-opacity:0.8;
-}
-
 .intro button{
 margin-top:25px;
 padding:14px 40px;
@@ -73,12 +67,6 @@ border:2px solid var(--gold);
 background:transparent;
 color:white;
 cursor:pointer;
-transition:.3s;
-}
-
-.intro button:hover{
-background:var(--gold);
-color:black;
 }
 
 /* ================= CONTENIDO ================= */
@@ -95,7 +83,6 @@ height:100vh;
 display:flex;
 align-items:center;
 justify-content:center;
-overflow:hidden;
 }
 
 .hero-img{
@@ -110,50 +97,18 @@ object-position:center top;
 content:"";
 position:absolute;
 inset:0;
-background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7));
+background:rgba(0,0,0,0.6);
 }
 
 .hero-content{
 position:relative;
 z-index:2;
 text-align:center;
-max-width:600px;
-padding:20px;
-animation:fadeUp 1.2s ease;
-}
-
-.hero h2{
-letter-spacing:3px;
-font-weight:300;
-margin-bottom:10px;
 }
 
 .hero h1{
-font-family:'Great Vibes',cursive;
-font-size:3.5rem;
-text-shadow:0 0 20px rgba(212,175,55,0.6);
-}
-
-.hero p{
-margin-top:15px;
-line-height:1.6;
-opacity:0.9;
-}
-
-.hero .btn{
-margin-top:25px;
-padding:12px 30px;
-border:1px solid var(--gold);
-border-radius:30px;
-background:transparent;
-color:white;
-cursor:pointer;
-transition:.3s;
-}
-
-.hero .btn:hover{
-background:var(--gold);
-color:black;
+font-family:'Great Vibes';
+font-size:3rem;
 }
 
 /* ================= FECHA ================= */
@@ -161,59 +116,81 @@ color:black;
 .fecha{
 min-height:100vh;
 display:flex;
+flex-direction:column;
 align-items:center;
 justify-content:center;
 text-align:center;
-padding:40px;
-background:#000;
+position:relative;
+overflow:hidden;
 }
 
-.fecha-content{
+/* estrellas animadas */
+.fecha::before{
+content:"";
+position:absolute;
+inset:0;
+background-image:radial-gradient(white 1px, transparent 1px);
+background-size:40px 40px;
+opacity:0.1;
+animation:starsMove 60s linear infinite;
+}
+
+@keyframes starsMove{
+from{transform:translateY(0);}
+to{transform:translateY(-200px);}
+}
+
+.fecha-box{
 border:1px solid var(--gold);
-padding:40px 50px;
+padding:30px 40px;
 border-radius:15px;
+margin-bottom:40px;
 background:rgba(255,255,255,0.02);
-backdrop-filter:blur(8px);
-animation:fadeUp 1.2s ease;
 }
 
 .fecha h2{
 font-family:'Playfair Display';
-font-size:2.2rem;
+font-size:2rem;
+margin-bottom:10px;
+}
+
+/* ================= COUNTDOWN ================= */
+
+.countdown-title{
+font-family:'Great Vibes';
+font-size:2.5rem;
+color:var(--gold);
 margin-bottom:20px;
 }
 
-.fecha p{
-font-size:1.2rem;
-margin:5px 0;
-letter-spacing:1px;
+.countdown{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+justify-content:center;
 }
 
-/* ================= ANIMACIÓN ================= */
+.count-box{
+border:1px solid var(--gold);
+padding:15px 20px;
+min-width:80px;
+border-radius:10px;
+}
 
-@keyframes fadeUp{
-from{
-opacity:0;
-transform:translateY(40px);
+.count-box span{
+font-size:1.8rem;
+display:block;
 }
-to{
-opacity:1;
-transform:translateY(0);
-}
+
+.count-box small{
+opacity:0.7;
 }
 
 /* ================= RESPONSIVE ================= */
 
 @media(max-width:768px){
-
-.intro h1{font-size:2.5rem;}
-.hero h1{font-size:2.5rem;}
-.hero p{font-size:0.95rem;}
-
-.fecha-content{
-padding:25px;
-}
-
+.hero h1{font-size:2.3rem;}
+.count-box{min-width:70px;}
 }
 
 </style>
@@ -223,11 +200,10 @@ padding:25px;
 
 <!-- INTRO -->
 <section class="intro" id="intro">
-    <div class="intro-content">
-        <h1>Maria Kamila Tobon</h1>
-        <p>Una noche mágica está por comenzar ✨</p>
-        <button onclick="abrirInvitacion()">Abrir Invitación</button>
-    </div>
+<div class="intro-content">
+<h1>Maria Kamila Tobon</h1>
+<button onclick="abrirInvitacion()">Abrir Invitación</button>
+</div>
 </section>
 
 <!-- CONTENIDO -->
@@ -235,53 +211,62 @@ padding:25px;
 
 <!-- HERO -->
 <section class="hero">
-    <img src="images/portada.jpeg" class="hero-img">
-
-    <div class="hero-content">
-        <h2>Mis 15 años</h2>
-        <h1>Maria Kamila Tobon</h1>
-        <p>
-        Hoy comienza una nueva etapa llena de sueños,
-        ilusión y momentos inolvidables.
-        </p>
-
-        <button class="btn" onclick="scrollNext()">Descubrir</button>
-    </div>
+<img src="images/portada.jpeg" class="hero-img">
+<div class="hero-content">
+<h1>Maria Kamila Tobon</h1>
+<p>Mis 15 años</p>
+</div>
 </section>
 
-<!-- FECHA -->
+<!-- FECHA + COUNTDOWN -->
 <section class="fecha">
-    <div class="fecha-content">
-        <h2>Fecha del evento</h2>
-        <p>02 de Mayo 2026</p>
-        <p>7:00 PM</p>
-    </div>
+
+<div class="fecha-box">
+<h2>Fecha del evento</h2>
+<p>02 de Mayo 2026</p>
+<p>7:00 PM</p>
+</div>
+
+<h2 class="countdown-title">Falta</h2>
+
+<div class="countdown">
+<div class="count-box"><span id="d">0</span><small>días</small></div>
+<div class="count-box"><span id="h">0</span><small>hs</small></div>
+<div class="count-box"><span id="m">0</span><small>min</small></div>
+<div class="count-box"><span id="s">0</span><small>seg</small></div>
+</div>
+
 </section>
 
 </div>
 
 <script>
 
+/* abrir */
 function abrirInvitacion(){
-const intro = document.getElementById("intro");
-const contenido = document.getElementById("contenido");
-
-intro.style.opacity = "0";
-intro.style.transition = "0.8s";
-
-setTimeout(()=>{
-intro.style.display = "none";
-contenido.style.display = "block";
-document.body.style.overflow = "auto";
-},800);
+document.getElementById("intro").style.display="none";
+document.getElementById("contenido").style.display="block";
+document.body.style.overflow="auto";
 }
 
-function scrollNext(){
-window.scrollBy({
-top: window.innerHeight,
-behavior: 'smooth'
-});
-}
+/* countdown */
+const fecha = new Date("2026-05-02T19:00:00");
+
+setInterval(()=>{
+let ahora = new Date();
+let diff = fecha - ahora;
+
+let d = Math.floor(diff / (1000*60*60*24));
+let h = Math.floor(diff / (1000*60*60) % 24);
+let m = Math.floor(diff / (1000*60) % 60);
+let s = Math.floor(diff / 1000 % 60);
+
+document.getElementById("d").innerText = d;
+document.getElementById("h").innerText = h;
+document.getElementById("m").innerText = m;
+document.getElementById("s").innerText = s;
+
+},1000);
 
 </script>
 
