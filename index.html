@@ -149,6 +149,51 @@ transition:.3s;
 transform:scale(1.05);
 }
 
+/* ===== GALERIA PRO ===== */
+
+.galeria{
+flex-direction:column;
+background:#000;
+overflow:hidden;
+}
+
+.titulo-galeria{
+font-family:'Great Vibes';
+color:var(--gold);
+font-size:2.5rem;
+margin-bottom:40px;
+}
+
+.carousel{
+width:100%;
+overflow:hidden;
+}
+
+.track{
+display:flex;
+gap:20px;
+width:max-content;
+animation:scroll 25s linear infinite;
+}
+
+.track img{
+width:220px;
+height:320px;
+object-fit:cover;
+border-radius:20px;
+transition:.4s;
+box-shadow:0 0 20px rgba(212,175,55,0.2);
+}
+
+.track img:hover{
+transform:scale(1.1);
+}
+
+/* animación */
+@keyframes scroll{
+0%{transform:translateX(0);}
+100%{transform:translateX(-50%);}
+}
 /* ===== DETALLES ===== */
 .detalles{
 flex-direction:column;
@@ -265,17 +310,34 @@ Ver ubicación
 </div>
 </section>
 
-<!-- GALERIA -->
+<!-- ================= GALERIA ================= -->
 <section class="galeria">
-<h2 style="font-family:'Great Vibes';color:gold;">Un recorrido de vida años</h2>
 
-<div class="grid">
+<h2 class="titulo-galeria">Un recorrido de sus 15 años</h2>
+
+<div class="carousel">
+
+<div class="track">
+
 <img src="images/galeria1.jpg">
 <img src="images/galeria2.jpg">
 <img src="images/galeria3.jpg">
 <img src="images/galeria4.jpg">
-<img src="images/galeria10.jpg">
+<img src="images/galeria5.jpg">
+<img src="images/galeria6.jpg">
+
+<!-- duplicadas para efecto infinito -->
+<img src="images/galeria1.jpg">
+<img src="images/galeria2.jpg">
+<img src="images/galeria3.jpg">
+<img src="images/galeria4.jpg">
+<img src="images/galeria5.jpg">
+<img src="images/galeria6.jpg">
+
 </div>
+
+</div>
+
 </section>
 
 <!-- DETALLES -->
