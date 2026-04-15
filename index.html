@@ -219,27 +219,35 @@ section{
 
 /* TARJETAS */
 .card{
+  width:420px;              /* 👈 MÁS GRANDE */
+  min-height:320px;         /* 👈 más aire vertical */
+  padding:40px 30px;        /* 👈 más espacio interno */
+  border-radius:25px;
   border:1px solid var(--gold);
-  border-radius:20px;
-  padding:30px;
-  width:320px;
-
-  background:rgba(0,0,0,0.65);
-  backdrop-filter:blur(10px);
-
-  box-shadow:
-    0 0 20px rgba(212,175,55,0.2),
-    0 0 40px rgba(212,175,55,0.1);
-
-  transition:0.3s;
+  background:rgba(0,0,0,0.85);
+  box-shadow:0 0 25px rgba(212,175,55,0.4);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 }
 
+ .titulo-card{
+  font-family:'Great Vibes', cursive;
+  font-size:32px;   /* 👈 más elegante */
+  margin-bottom:20px;
+}  
+
 .padre{
-  font-family:'Great Vibes', cursive; /* 👈 MISMA DE PORTADA */
-  font-size:22px;
+  font-family:'Great Vibes', cursive;
+  font-size:26px;   /* 👈 más protagonistas */
   color:var(--gold);
 }
 
+.sub{
+  font-size:15px;
+  opacity:0.7;
+}   
+   
 .titulo-card{
   font-family:'Great Vibes', cursive;
   font-size:26px;
@@ -250,6 +258,14 @@ section{
   width:350px; /* 👈 un poco más grande */
 }
 
+.fecha{
+  font-size:20px;
+  margin-bottom:10px;
+}
+
+.contenedor-fecha{
+  gap:60px; /* 👈 más separación elegante */
+}
    
 /* HOVER SUAVE */
 .card:hover{
@@ -295,25 +311,20 @@ section{
 }
 
 /* CONTADOR */
-.faltan{
-  color:var(--gold);
-  margin:10px 0;
-}
-
-.count{
+.contador{
   display:flex;
-  flex-direction:column;
-  align-items:center;
+  justify-content:center;
+  gap:15px;
+  margin-top:20px;
+  flex-wrap:wrap;
+}
+
+.contador div{
+  border:1px solid var(--gold);
+  padding:15px;
+  border-radius:12px;
   min-width:70px;
-}
-
-.count span{
   font-size:18px;
-}
-
-.count small{
-  font-size:11px;
-  color:#aaa;
 }
 
 /* RESPONSIVE */
