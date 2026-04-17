@@ -590,7 +590,7 @@ section{
 }
    
 /* =====================================================
-   GALERIA CARRUSEL PREMIUM
+   GALERIA DOBLE PREMIUM
 ===================================================== */
 
 .galeria{
@@ -598,8 +598,8 @@ section{
   flex-direction:column;
   align-items:center;
   gap:30px;
-  overflow:hidden;
   padding:60px 20px;
+  overflow:hidden;
 }
 
 /* TITULO */
@@ -610,7 +610,7 @@ section{
   text-shadow:0 0 10px rgba(212,175,55,0.4);
 }
 
-/* CONTENEDOR */
+/* CARRUSEL */
 .carousel{
   width:100%;
   overflow:hidden;
@@ -622,15 +622,20 @@ section{
   display:flex;
   gap:25px;
   width:max-content;
-  animation:scroll 45s linear infinite; /* 👈 MÁS SUAVE */
+  animation:scrollLeft 45s linear infinite;
+}
+
+/* CARRUSEL INVERTIDO */
+.carousel.reverse .track{
+  animation:scrollRight 45s linear infinite;
 }
 
 /* IMAGENES */
 .track img{
-  width:240px;
-  height:340px;
+  width:220px;
+  height:320px;
   object-fit:cover;
-  border-radius:20px;
+  border-radius:18px;
 
   box-shadow:
     0 0 20px rgba(212,175,55,0.15);
@@ -645,7 +650,7 @@ section{
     0 0 30px rgba(212,175,55,0.35);
 }
 
-/* EFECTO DIFUMINADO LADOS (MUY PRO) */
+/* EFECTO DIFUMINADO LADOS */
 .carousel::before,
 .carousel::after{
   content:"";
@@ -666,20 +671,30 @@ section{
   background:linear-gradient(to left, #000, transparent);
 }
 
-/* ANIMACION */
-@keyframes scroll{
+/* ANIMACIONES */
+@keyframes scrollLeft{
   0%{transform:translateX(0);}
   100%{transform:translateX(-50%);}
 }
 
+@keyframes scrollRight{
+  0%{transform:translateX(-50%);}
+  100%{transform:translateX(0);}
+}
+
+/* PAUSA EN HOVER (PRO) */
+.carousel:hover .track{
+  animation-play-state: paused;
+}
+
 /* =========================
-   MOBILE Galeria
+   MOBILE
 ========================= */
 @media(max-width:768px){
 
   .track img{
-    width:180px;
-    height:260px;
+    width:150px;
+    height:220px;
   }
 
   .titulo-galeria{
@@ -687,7 +702,6 @@ section{
   }
 
 }
-
 /* =========================================
    SECCIÓN DETALLES (PREMIUM)
 ========================================= */
@@ -949,11 +963,12 @@ donde los sueños comienzan a hacerse realidad
   </button>
 </section>
    
-<!-- GALERIA -->
+<!-- GALERIA DOBLE -->
 <section class="galeria">
 
   <h2 class="titulo-galeria">Un recorrido de vida</h2>
 
+  <!-- CARRUSEL 1 -->
   <div class="carousel">
     <div class="track">
 
@@ -965,8 +980,25 @@ donde los sueños comienzan a hacerse realidad
       <img src="images/galeria6.jpeg">
       <img src="images/galeria7.jpeg">
       <img src="images/galeria8.jpeg">
-      <img src="images/galeria9.jpeg">
 
+      <!-- DUPLICADO -->
+      <img src="images/galeria1.jpeg">
+      <img src="images/galeria2.jpeg">
+      <img src="images/galeria3.jpeg">
+      <img src="images/galeria4.jpeg">
+      <img src="images/galeria5.jpeg">
+      <img src="images/galeria6.jpeg">
+      <img src="images/galeria7.jpeg">
+      <img src="images/galeria8.jpeg">
+
+    </div>
+  </div>
+
+  <!-- CARRUSEL 2 (INVERTIDO) -->
+  <div class="carousel reverse">
+    <div class="track">
+
+      <img src="images/galeria9.jpeg">
       <img src="images/galeria10.JPG">
       <img src="images/galeria11.JPEG">
       <img src="images/galeria12.jpg">
@@ -975,21 +1007,23 @@ donde los sueños comienzan a hacerse realidad
       <img src="images/galeria15.jpg">
       <img src="images/galeria16.jpg">
 
-      <!-- DUPLICADO PARA LOOP -->
-      <img src="images/galeria1.jpeg">
-      <img src="images/galeria2.jpeg">
-      <img src="images/galeria3.jpeg">
-      <img src="images/galeria4.jpeg">
-      <img src="images/galeria5.jpeg">
-      <img src="images/galeria6.jpeg">
+      <!-- DUPLICADO -->
+      <img src="images/galeria9.jpeg">
+      <img src="images/galeria10.JPG">
+      <img src="images/galeria11.JPEG">
+      <img src="images/galeria12.jpg">
+      <img src="images/galeria13.JPG">
+      <img src="images/galeria14.jpg">
+      <img src="images/galeria15.jpg">
+      <img src="images/galeria16.jpg">
 
     </div>
-
-    <button class="btn" onclick="siguienteSeccion(this)">
-      Y ahora <span>↓</span>
-    </button>
-
   </div>
+
+  <!-- BOTON -->
+  <button class="btn" onclick="siguienteSeccion(this)">
+    Y ahora <span>↓</span>
+  </button>
 
 </section>
 
