@@ -590,42 +590,80 @@ section{
 }
    
 /* =====================================================
-   GALERIA CARRUSEL
+   GALERIA CARRUSEL PREMIUM
 ===================================================== */
+
 .galeria{
+  display:flex;
   flex-direction:column;
+  align-items:center;
+  gap:30px;
   overflow:hidden;
+  padding:60px 20px;
 }
 
+/* TITULO */
 .titulo-galeria{
-  font-family:'Great Vibes';
+  font-family:'Great Vibes', cursive;
   color:var(--gold);
-  font-size:2.5rem;
-  margin-bottom:40px;
+  font-size:36px;
+  text-shadow:0 0 10px rgba(212,175,55,0.4);
 }
 
+/* CONTENEDOR */
 .carousel{
   width:100%;
   overflow:hidden;
+  position:relative;
 }
 
+/* TRACK */
 .track{
   display:flex;
-  gap:20px;
+  gap:25px;
   width:max-content;
-  animation:scroll 25s linear infinite;
+  animation:scroll 45s linear infinite; /* 👈 MÁS SUAVE */
 }
 
+/* IMAGENES */
 .track img{
-  width:260px;
-  height:360px;
+  width:240px;
+  height:340px;
   object-fit:cover;
   border-radius:20px;
-  transition:.4s;
+
+  box-shadow:
+    0 0 20px rgba(212,175,55,0.15);
+
+  transition:all .4s ease;
 }
 
+/* HOVER */
 .track img:hover{
-  transform:scale(1.1);
+  transform:scale(1.08);
+  box-shadow:
+    0 0 30px rgba(212,175,55,0.35);
+}
+
+/* EFECTO DIFUMINADO LADOS (MUY PRO) */
+.carousel::before,
+.carousel::after{
+  content:"";
+  position:absolute;
+  top:0;
+  width:80px;
+  height:100%;
+  z-index:2;
+}
+
+.carousel::before{
+  left:0;
+  background:linear-gradient(to right, #000, transparent);
+}
+
+.carousel::after{
+  right:0;
+  background:linear-gradient(to left, #000, transparent);
 }
 
 /* ANIMACION */
@@ -634,26 +672,21 @@ section{
   100%{transform:translateX(-50%);}
 }
 
-.detalles{
-  flex-direction:column;
-}
+/* =========================
+   MOBILE Galeria
+========================= */
+@media(max-width:768px){
 
-.cards-detalle{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:25px;
-  max-width:900px;
-}
+  .track img{
+    width:180px;
+    height:260px;
+  }
 
-.card-detalle{
-  border:1px solid var(--gold);
-  padding:25px;
-  border-radius:15px;
-  width:250px;
-  background:rgba(255,255,255,0.02);
-}
+  .titulo-galeria{
+    font-size:28px;
+  }
 
+}
 
 /* =========================================
    SECCIÓN DETALLES (PREMIUM)
@@ -918,28 +951,46 @@ donde los sueños comienzan a hacerse realidad
    
 <!-- GALERIA -->
 <section class="galeria">
-<h2 class="titulo-galeria">Un recorrido de vida</h2>
 
-<div class="carousel">
-<div class="track">
+  <h2 class="titulo-galeria">Un recorrido de vida</h2>
 
-<img src="images/galeria1.jpg">
-<img src="images/galeria2.jpg">
-<img src="images/galeria3.jpg">
-<img src="images/galeria4.jpg">
-<img src="images/galeria5.jpg">
-<img src="images/galeria6.jpg">
+  <div class="carousel">
+    <div class="track">
 
-<img src="images/galeria1.jpg">
-<img src="images/galeria2.jpg">
-<img src="images/galeria3.jpg">
-<img src="images/galeria4.jpg">
-<img src="images/galeria5.jpg">
-<img src="images/galeria6.jpg">
+      <img src="images/galeria1.jpeg">
+      <img src="images/galeria2.jpeg">
+      <img src="images/galeria3.jpeg">
+      <img src="images/galeria4.jpeg">
+      <img src="images/galeria5.jpeg">
+      <img src="images/galeria6.jpeg">
+      <img src="images/galeria7.jpeg">
+      <img src="images/galeria8.jpeg">
+      <img src="images/galeria9.jpeg">
 
-</div>
-<button class="btn" onclick="siguienteSeccion(this)"> Y Ahora QUE <span>↓</span>
-</div>
+      <img src="images/galeria10.JPG">
+      <img src="images/galeria11.JPEG">
+      <img src="images/galeria12.jpg">
+      <img src="images/galeria13.JPG">
+      <img src="images/galeria14.jpg">
+      <img src="images/galeria15.jpg">
+      <img src="images/galeria16.jpg">
+
+      <!-- DUPLICADO PARA LOOP -->
+      <img src="images/galeria1.jpeg">
+      <img src="images/galeria2.jpeg">
+      <img src="images/galeria3.jpeg">
+      <img src="images/galeria4.jpeg">
+      <img src="images/galeria5.jpeg">
+      <img src="images/galeria6.jpeg">
+
+    </div>
+
+    <button class="btn" onclick="siguienteSeccion(this)">
+      Y ahora <span>↓</span>
+    </button>
+
+  </div>
+
 </section>
 
 <!-- DETALLES -->
