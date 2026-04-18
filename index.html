@@ -808,24 +808,58 @@ section{
    
 
    
-/* =====================================================
-   INSTAGRAM
-===================================================== */
+/* =========================================
+   INSTAGRAM PREMIUM + ESTRELLAS
+========================================= */
+
 .instagram{
-  background:#0b1a2f;
+  position:relative;
+  display:flex;
   flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  gap:20px;
+  padding:80px 20px;
+  overflow:hidden;
+  background:#020202;
 }
 
-.instagram h2{
+/* FONDO ESTRELLAS */
+.instagram::before{
+  content:"";
+  position:absolute;
+  width:200%;
+  height:200%;
+  background:url('https://www.transparenttextures.com/patterns/stardust.png');
+  opacity:0.15;
+  animation:moverEstrellas 60s linear infinite;
+}
+
+/* ANIMACION */
+@keyframes moverEstrellas{
+  from{transform:translate(0,0);}
+  to{transform:translate(-300px,-300px);}
+}
+
+/* TEXTO */
+.hashtag{
   font-family:'Great Vibes';
+  font-size:40px;
   color:var(--gold);
-  font-size:2.5rem;
+  z-index:2;
 }
 
+.insta-texto{
+  font-size:16px;
+  color:#ddd;
+  max-width:300px;
+  z-index:2;
+}
+
+/* BOTON */
 .instagram .btn{
-  background:#fff;
-  color:black;
-  border:none;
+  z-index:2;
 }
 
 /* =====================================================
@@ -1039,10 +1073,10 @@ donde los sueños comienzan a hacerse realidad
     <div class="card-detalle">
       <h3>👗 Dress Code</h3>
       <p>Elegante</p>
-      <span class="extra">Reservamos el azul oscuro y negro</span>
+      <span class="extra">Reservamos el AZUL OSCURO y DORADO</span>
     </div>
     <div class="card-detalle">
-      <h3>🎁 Nota</h3>
+      <h3>🎁 Nota Fenomenal</h3>
       <p>Lluvia de sobres</p>
     </div>
   </div>
@@ -1056,12 +1090,19 @@ donde los sueños comienzan a hacerse realidad
    
 <!-- INSTAGRAM -->
 <section class="instagram">
-<h2>#15Kamila</h2>
-<p>Comparte tus fotos del evento</p>
 
-<a class="btn" href="#" target="_blank">
-Ver en Instagram
-</a>
+  <h2 class="hashtag">#15Kamila</h2>
+
+  <p class="insta-texto">
+    Comparte tus fotos del evento usando el hashtag <b>#15Kamila</b>  
+    y etiquétanos para verlas 💛
+  </p>
+
+  <!-- BOTON PERFIL -->
+  <a class="btn" href="https://www.instagram.com/kami.m.90/" target="_blank">
+    Ver perfil <span>📸</span>
+  </a>
+
 </section>
 
 </div>
